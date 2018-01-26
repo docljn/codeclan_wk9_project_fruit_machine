@@ -24,3 +24,6 @@ The aim is to display the results of the Java logic. For example, if the user sp
 * ***DO NOT USE ANY FRAMEWORKS*** - this includes Java Swing and similar packages. If in any doubt ask an instructor.
 * There will still be stand-up at 9am every morning (10am on Friday) - you are still expected to be in every day during the project.
 * If you have an idea for a project outwith the specs defined above then please discuss this with the instructors before going ahead.
+
+## Planning at Waffle.io
+[![Waffle.io - Issues in progress](https://badge.waffle.io/docljn/codeclan_wk9_project_fruit_machine.png?label=in%20progress&title=In%20Progress)](http://waffle.io/docljn/codeclan_wk9_project_fruit_machine)
