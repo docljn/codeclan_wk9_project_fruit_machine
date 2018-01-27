@@ -5,14 +5,17 @@ package example.docljn.com.fruitmachine.JavaLogic;
  */
 
 public enum Symbol {
-    DIAMOND(1),
-    CLUB(2),
-    HEART(3),
-    SPADE(4);
+    DIAMOND(1, 1),
+    CLUB(2, 2),
+    HEART(3, 3),
+    SPADE(4, 4);
 
-    private int imageRef;
+    private int value;
+    private int imageId;
 
-    Symbol(int imageRef) {
-        this.imageRef = imageRef;
+    Symbol(int value, int imageId) {
+        this.value = value;
+        this.imageId = imageId;
     }
+
 }

@@ -17,17 +17,21 @@ import static org.junit.Assert.assertEquals;
 public class ReelTest {
 
     Reel reel;
-    ArrayList<Symbol> symbols;
-    ArrayList<Symbol> alternativeSymbols;
+    ArrayList<Symbol> setup;
+    ArrayList<Symbol> alternativeSetup;
 
     @Before
     public void before(){
-        symbols = new ArrayList<>();
-        symbols.add(Symbol.CLUB);
-        symbols.add(Symbol.DIAMOND);
-        symbols.add(Symbol.HEART);
-        symbols.add(Symbol.SPADE);
-        reel = new Reel(symbols, 2);
+        setup = new ArrayList<>();
+        setup.add(Symbol.CLUB);
+        setup.add(Symbol.DIAMOND);
+        setup.add(Symbol.HEART);
+        setup.add(Symbol.SPADE);
+        setup.add(Symbol.CLUB);
+        setup.add(Symbol.DIAMOND);
+        setup.add(Symbol.HEART);
+        setup.add(Symbol.HEART);
+        reel = new Reel(setup, 2);
     }
 
     @Test
@@ -38,8 +42,8 @@ public class ReelTest {
 
 
     @Test
-    public void getsReelSetupReference(){
-        assertEquals(2, reel.getSetupReference());
+    public void getsReelReturnLevel(){
+        assertEquals(2, reel.getReturnLevel());
 
     }
 
@@ -49,17 +53,11 @@ public class ReelTest {
     }
 
 
-    @Test
-    public void setsNumberOfStops(){
-        reel.setNumberOfStops(9);
-        assertEquals(9, reel.getNumberOfStops());
-    }
-
 
     @Test
-    public void setsImageLookupTable(){
-        reel.setImageLookupTable(alternativeSymbols);
-        assertEquals(alternativeSymbols, reel.getImageLookupTable());
+    public void setsReelSetup(){
+        reel.setSetup(alternativeSetup);
+        assertEquals(alternativeSetup, reel.getSetup());
     }
 
     @Test
@@ -69,9 +67,9 @@ public class ReelTest {
     }
 
     @Test
-    public void setsSetUpReference(){
-        reel.setSetupReference(1);
-        assertEquals(1, reel.getSetupReference());
+    public void setsReturnLevel(){
+        reel.setReturnLevel(1);
+        assertEquals(1, reel.getReturnLevel());
     }
 
     @Test
@@ -84,6 +82,32 @@ public class ReelTest {
         reel.setVisibleStop(3);
         assertEquals(3, reel.getVisibleStop());
     }
+
+    @Test
+    public void stopBeforeFromVisibleStop(){
+        reel.setVisibleStop(3);
+        assertEquals(2, reel.getStopBefore());
+    }
+
+    @Test
+    public void stopAfterFromVisibleStop(){
+        reel.setVisibleStop(3);
+        assertEquals(4, reel.getStopAfter());
+    }
+
+    @Test
+    public void stopCountIsCircularDownwards(){
+        reel.setVisibleStop(0);
+        assertEquals(7, reel.getStopBefore());
+    }
+
+    @Test
+    public void stopCountIsCircularUpwards(){
+        reel.setVisibleStop(7);
+        assertEquals(0, reel.getStopAfter());
+    }
+
+
 
 
 }

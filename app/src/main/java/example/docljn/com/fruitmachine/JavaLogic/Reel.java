@@ -8,50 +8,45 @@ import java.util.ArrayList;
 
 public class Reel {
     private int visibleStop;
-    private ArrayList<Symbol> imageLookupTable;
+    private ArrayList<Symbol> setup;
     private int numberOfStops;
-    private int setupReference;
+    private int returnLevel;
     private boolean held;
 
-    public Reel(ArrayList<Symbol> imageLookupTable, int setupReference) {
-        this.imageLookupTable = imageLookupTable;
-        this.numberOfStops = 8; //TODO: link this to the number of images in the lookupTable
-        this.setupReference = setupReference;
+    public Reel(ArrayList<Symbol> setup, int returnLevel) {
+        this.setup = setup;
+        this.returnLevel = returnLevel;
         this.held = false;
         this.visibleStop = 0;
     }
 
     public int getNumberOfStops() {
-        return this.numberOfStops;
+        return this.setup.size();
     }
 
     public int getVisibleStop() {
         return visibleStop;
     }
 
-    public ArrayList<Symbol> getImageLookupTable() {
-        return this.imageLookupTable;
+    public ArrayList<Symbol> getSetup() {
+        return this.setup;
     }
 
-    public int getSetupReference() {
-        return setupReference;
+    public int getReturnLevel() {
+        return returnLevel;
     }
 
     public boolean getHeld() {
         return this.held;
     }
 
-    public void setNumberOfStops(int numberOfStops) {
-        this.numberOfStops = numberOfStops;
-    }
-
-    public void setImageLookupTable(ArrayList<Symbol> imageLookupTable) {
-        this.imageLookupTable = imageLookupTable;
+    public void setSetup(ArrayList<Symbol> setup) {
+        this.setup = setup;
     }
 
 
-    public void setSetupReference(int setupReference) {
-        this.setupReference = setupReference;
+    public void setReturnLevel(int returnLevel) {
+        this.returnLevel = returnLevel;
     }
 
     public void setHeld(boolean held) {
@@ -60,6 +55,26 @@ public class Reel {
 
 
     public void setVisibleStop(int visibleStop) {
+        //TODO: consider adding logic about negative or too large to this method as well?
         this.visibleStop = visibleStop;
+    }
+
+
+    public int getStopBefore() {
+        int before = getVisibleStop() - 1;
+        if (before < 0){
+            return getNumberOfStops()-1;
+        } else if (before >= getNumberOfStops()){
+            return before - (getNumberOfStops()-1);
+        }
+        return before;
+    }
+
+    public int getStopAfter() { //TODO circular upwards
+        int after = getVisibleStop() + 1;
+        if (after >= getNumberOfStops()) {
+            return after - getNumberOfStops();
+        }
+        return after;
     }
 }
