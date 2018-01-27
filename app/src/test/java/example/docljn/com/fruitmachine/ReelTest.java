@@ -3,6 +3,8 @@ package example.docljn.com.fruitmachine;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
 import example.docljn.com.fruitmachine.JavaLogic.Symbol;
 
@@ -15,17 +17,22 @@ import static org.junit.Assert.assertEquals;
 public class ReelTest {
 
     Reel reel;
-    Symbol symbols;
-    Symbol alternativeSymbols;
+    ArrayList<Symbol> symbols;
+    ArrayList<Symbol> alternativeSymbols;
 
     @Before
     public void before(){
-        reel = new Reel(11, symbols, 2);
+        symbols = new ArrayList<>();
+        symbols.add(Symbol.CLUB);
+        symbols.add(Symbol.DIAMOND);
+        symbols.add(Symbol.HEART);
+        symbols.add(Symbol.SPADE);
+        reel = new Reel(symbols, 2);
     }
 
     @Test
-    public void getsNumberOfStops(){
-        assertEquals(11, reel.getNumberOfStops());
+    public void getsNumberOfStopsDefaultIsEight(){
+        assertEquals(8, reel.getNumberOfStops());
     }
 
 

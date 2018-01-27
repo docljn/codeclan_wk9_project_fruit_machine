@@ -1,19 +1,21 @@
 package example.docljn.com.fruitmachine.JavaLogic;
 
+import java.util.ArrayList;
+
 /**
  * Created by lornanoble on 27/01/2018.
  */
 
 public class Reel {
     private int visibleStop;
-    private Symbol imageLookupTable;
+    private ArrayList<Symbol> imageLookupTable;
     private int numberOfStops;
     private int setupReference;
     private boolean held;
 
-    public Reel(int numberOfStops, Symbol imageLookupTable, int setupReference) {
+    public Reel(ArrayList<Symbol> imageLookupTable, int setupReference) {
         this.imageLookupTable = imageLookupTable;
-        this.numberOfStops = numberOfStops;
+        this.numberOfStops = 8; //TODO: link this to the number of images in the lookupTable
         this.setupReference = setupReference;
         this.held = false;
         this.visibleStop = 0;
@@ -27,7 +29,7 @@ public class Reel {
         return visibleStop;
     }
 
-    public Symbol getImageLookupTable() {
+    public ArrayList<Symbol> getImageLookupTable() {
         return this.imageLookupTable;
     }
 
@@ -43,7 +45,7 @@ public class Reel {
         this.numberOfStops = numberOfStops;
     }
 
-    public void setImageLookupTable(Symbol imageLookupTable) {
+    public void setImageLookupTable(ArrayList<Symbol> imageLookupTable) {
         this.imageLookupTable = imageLookupTable;
     }
 
