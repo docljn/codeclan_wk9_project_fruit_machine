@@ -1,7 +1,9 @@
-package example.docljn.com.fruitmachine;
+package example.docljn.com.fruitmachine.AndroidDisplayLogic;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import example.docljn.com.fruitmachine.R;
 
 public class SplashScreen extends AppCompatActivity {
 
