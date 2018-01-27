@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
+import example.docljn.com.fruitmachine.JavaLogic.Symbol;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,10 +15,12 @@ import static org.junit.Assert.assertEquals;
 public class ReelTest {
 
     Reel reel;
+    Symbol symbols;
+    Symbol alternativeSymbols;
 
     @Before
     public void before(){
-        reel = new Reel(11, 1, 2);
+        reel = new Reel(11, symbols, 2);
     }
 
     @Test
@@ -25,10 +28,7 @@ public class ReelTest {
         assertEquals(11, reel.getNumberOfStops());
     }
 
-    @Test
-    public void getsImageLookupTableReference(){
-        assertEquals(1, reel.getImageLookupTable());
-    }
+
 
     @Test
     public void getsReelSetupReference(){
@@ -51,8 +51,8 @@ public class ReelTest {
 
     @Test
     public void setsImageLookupTable(){
-        reel.setImageLookupTable(4);
-        assertEquals(4, reel.getImageLookupTable());
+        reel.setImageLookupTable(alternativeSymbols);
+        assertEquals(alternativeSymbols, reel.getImageLookupTable());
     }
 
     @Test
@@ -67,5 +67,24 @@ public class ReelTest {
         assertEquals(1, reel.getSetupReference());
     }
 
-    
+    @Test
+    public void getsVisibleStopWhichStartsAtZero(){
+        assertEquals(0, reel.getVisibleStop());
+    }
+
+    @Test
+    public void setsVisibleStop(){
+        reel.setVisibleStop(3);
+        assertEquals(3, reel.getVisibleStop());
+    }
+
+
 }
+
+
+/*
+@Test - should apply to GAME not REEL
+    public void getsPayTableReference(){
+        assertEquals(1, reel.getImageLookupTable());
+    }
+ */

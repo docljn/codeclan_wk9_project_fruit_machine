@@ -5,23 +5,29 @@ package example.docljn.com.fruitmachine.JavaLogic;
  */
 
 public class Reel {
-    private int imageLookupTable;
+    private int visibleStop;
+    private Symbol imageLookupTable;
     private int numberOfStops;
     private int setupReference;
     private boolean held;
 
-    public Reel(int numberOfStops, int imageLookupTable, int setupReference) {
+    public Reel(int numberOfStops, Symbol imageLookupTable, int setupReference) {
         this.imageLookupTable = imageLookupTable;
         this.numberOfStops = numberOfStops;
         this.setupReference = setupReference;
         this.held = false;
+        this.visibleStop = 0;
     }
 
     public int getNumberOfStops() {
         return this.numberOfStops;
     }
 
-    public int getImageLookupTable() {
+    public int getVisibleStop() {
+        return visibleStop;
+    }
+
+    public Symbol getImageLookupTable() {
         return this.imageLookupTable;
     }
 
@@ -37,7 +43,7 @@ public class Reel {
         this.numberOfStops = numberOfStops;
     }
 
-    public void setImageLookupTable(int imageLookupTable) {
+    public void setImageLookupTable(Symbol imageLookupTable) {
         this.imageLookupTable = imageLookupTable;
     }
 
@@ -48,5 +54,10 @@ public class Reel {
 
     public void setHeld(boolean held) {
         this.held = held;
+    }
+
+
+    public void setVisibleStop(int visibleStop) {
+        this.visibleStop = visibleStop;
     }
 }
