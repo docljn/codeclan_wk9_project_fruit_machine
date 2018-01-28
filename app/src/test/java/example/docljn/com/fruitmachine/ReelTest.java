@@ -121,6 +121,12 @@ public class ReelTest {
         assertEquals(0, reel.getVisibleStop());
     }
 
+    @Test
+    public void setVisibleStopCopesWithNegatives(){
+        reel.setVisibleStop(-1);
+        assertEquals(7, reel.getVisibleStop());
+    }
+
 
 
 

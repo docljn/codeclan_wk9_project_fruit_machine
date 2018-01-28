@@ -66,6 +66,9 @@ public class Reel {
 
 
     public void setVisibleStop(int visibleStop) {
+        if (visibleStop < 0){
+            visibleStop = getNumberOfStops() + visibleStop;
+        }
         this.visibleStop = visibleStop % getNumberOfStops();
     }
 
