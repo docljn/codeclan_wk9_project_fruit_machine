@@ -115,6 +115,12 @@ public class ReelTest {
         assertEquals(true, reel.getHeld());
     }
 
+    @Test
+    public void setVisibleStopIsCircular(){
+        reel.setVisibleStop(24);
+        assertEquals(0, reel.getVisibleStop());
+    }
+
 
 
 

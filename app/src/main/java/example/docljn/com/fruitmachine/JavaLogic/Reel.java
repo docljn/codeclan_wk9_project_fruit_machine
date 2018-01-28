@@ -66,8 +66,7 @@ public class Reel {
 
 
     public void setVisibleStop(int visibleStop) {
-        //TODO: consider adding logic about negative or too large to this method as well?
-        this.visibleStop = visibleStop;
+        this.visibleStop = visibleStop % getNumberOfStops();
     }
 
 
