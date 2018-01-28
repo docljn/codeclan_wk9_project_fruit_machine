@@ -1,6 +1,7 @@
 package example.docljn.com.fruitmachine.JavaLogic;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by lornanoble on 27/01/2018.
@@ -105,4 +106,17 @@ public class Reel {
             setVisibleStop(getVisibleStop() + 1);
         }
     }
+
+
+    public void spin() {
+
+        Random random = new Random();
+        // Generate random integers in range 0 to 999
+        int randomStop = random.nextInt(1000);
+        if (getHeld() == false) {
+            setVisibleStop(randomStop);
+        }
+    }
 }
+
+

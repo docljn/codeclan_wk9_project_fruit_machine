@@ -147,6 +147,21 @@ public class ReelTest {
         assertEquals(1, reel.getVisibleStop());
     }
 
+    @Test
+    public void spinSetsRandomVisibleStop(){
+        //TODO: how to test a random method?
+        reel.spin();
+        System.out.println(reel.getVisibleStop());
+    }
+
+    @Test
+    public void spinDoesNotMoveReelIfHeldIsTrue(){
+        reel.setHoldable(true);
+        reel.setHeld(true);
+        reel.spin();
+        assertEquals(0, reel.getVisibleStop());
+    }
+
 
 
 }
