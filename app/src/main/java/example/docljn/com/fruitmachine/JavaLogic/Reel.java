@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Reel {
+    private boolean nudgeable;
     private boolean holdable;
     private int visibleStop;
     private ArrayList<Symbol> setup;
@@ -19,6 +20,7 @@ public class Reel {
         this.returnLevel = returnLevel;
         this.held = false;
         this.holdable = false;
+        this.nudgeable = false;
         this.visibleStop = 0;
     }
 
@@ -60,7 +62,7 @@ public class Reel {
     }
 
     public void setHeld(boolean held) {
-        if (getHoldable() == true){
+        if (getHoldable()){
         this.held = held;}
     }
 
@@ -90,5 +92,17 @@ public class Reel {
     }
 
 
+    public boolean getNudgeable() {
+        return this.nudgeable;
+    }
 
+    public void setNudgeable(boolean nudgeable) {
+        this.nudgeable = nudgeable;
+    }
+
+    public void nudge() {
+        if (getNudgeable()) {
+            setVisibleStop(getVisibleStop() + 1);
+        }
+    }
 }

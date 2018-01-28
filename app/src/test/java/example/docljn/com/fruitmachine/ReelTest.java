@@ -39,8 +39,6 @@ public class ReelTest {
         assertEquals(8, reel.getNumberOfStops());
     }
 
-
-
     @Test
     public void getsReelReturnLevel(){
         assertEquals(2, reel.getReturnLevel());
@@ -52,14 +50,11 @@ public class ReelTest {
         assertEquals(false, reel.getHeld());
     }
 
-
-
     @Test
     public void setsReelSetup(){
         reel.setSetup(alternativeSetup);
         assertEquals(alternativeSetup, reel.getSetup());
     }
-
 
     @Test
     public void setsReturnLevel(){
@@ -127,6 +122,30 @@ public class ReelTest {
         assertEquals(7, reel.getVisibleStop());
     }
 
+    @Test
+    public void reelStartsNotNudgeable(){
+        assertEquals(false, reel.getNudgeable());
+    }
+
+    @Test
+    public void setsNudgeable(){
+        reel.setNudgeable(true);
+        assertEquals(true, reel.getNudgeable());
+    }
+
+    @Test
+    public void nudgeMovesOneStopOn(){
+        reel.nudge();
+        assertEquals(0, reel.getVisibleStop());
+    }
+
+
+    @Test
+    public void nudgeRequiresNudgeableTrue(){
+        reel.setNudgeable(true);
+        reel.nudge();
+        assertEquals(1, reel.getVisibleStop());
+    }
 
 
 
