@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Reel {
+    private boolean holdable;
     private int visibleStop;
     private ArrayList<Symbol> setup;
     private int numberOfStops;
@@ -17,6 +18,7 @@ public class Reel {
         this.setup = setup;
         this.returnLevel = returnLevel;
         this.held = false;
+        this.holdable = false;
         this.visibleStop = 0;
     }
 
@@ -36,6 +38,10 @@ public class Reel {
         return returnLevel;
     }
 
+    public boolean getHoldable() {
+        return this.holdable;
+    }
+
     public boolean getHeld() {
         return this.held;
     }
@@ -49,8 +55,13 @@ public class Reel {
         this.returnLevel = returnLevel;
     }
 
+    public void setHoldable(boolean holdable) {
+        this.holdable = holdable;
+    }
+
     public void setHeld(boolean held) {
-        this.held = held;
+        if (getHoldable() == true){
+        this.held = held;}
     }
 
 
@@ -62,19 +73,22 @@ public class Reel {
 
     public int getStopBefore() {
         int before = getVisibleStop() - 1;
-        if (before < 0){
+        if (before == -1){
             return getNumberOfStops()-1;
-        } else if (before >= getNumberOfStops()){
+        } else if (before == getNumberOfStops()){
             return before - (getNumberOfStops()-1);
         }
         return before;
     }
 
-    public int getStopAfter() { //TODO circular upwards
+    public int getStopAfter() {
         int after = getVisibleStop() + 1;
-        if (after >= getNumberOfStops()) {
+        if (after == getNumberOfStops()) {
             return after - getNumberOfStops();
         }
         return after;
     }
+
+
+
 }

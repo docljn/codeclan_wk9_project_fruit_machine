@@ -60,11 +60,6 @@ public class ReelTest {
         assertEquals(alternativeSetup, reel.getSetup());
     }
 
-    @Test
-    public void setsHeldStatus(){
-        reel.setHeld(true);
-        assertEquals(true, reel.getHeld());
-    }
 
     @Test
     public void setsReturnLevel(){
@@ -105,6 +100,19 @@ public class ReelTest {
     public void stopCountIsCircularUpwards(){
         reel.setVisibleStop(7);
         assertEquals(0, reel.getStopAfter());
+    }
+
+    @Test
+    public void reelCanOnlyBeHeldIfHoldableTrue(){
+        reel.setHeld(true);
+        assertEquals(false, reel.getHeld());
+    }
+
+    @Test
+    public void setsHeldStatus(){
+        reel.setHoldable(true);
+        reel.setHeld(true);
+        assertEquals(true, reel.getHeld());
     }
 
 
