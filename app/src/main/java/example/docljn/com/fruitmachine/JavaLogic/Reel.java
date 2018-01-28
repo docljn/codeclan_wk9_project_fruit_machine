@@ -12,13 +12,10 @@ public class Reel {
     private boolean holdable;
     private int visibleStop;
     private ArrayList<Symbol> setup;
-    private int numberOfStops;
-    private int returnLevel;
     private boolean held;
 
-    public Reel(ArrayList<Symbol> setup, int returnLevel) {
+    public Reel(ArrayList<Symbol> setup) {
         this.setup = setup;
-        this.returnLevel = returnLevel;
         this.held = false;
         this.holdable = false;
         this.nudgeable = false;
@@ -37,10 +34,6 @@ public class Reel {
         return this.setup;
     }
 
-    public int getReturnLevel() {
-        return returnLevel;
-    }
-
     public boolean getHoldable() {
         return this.holdable;
     }
@@ -53,10 +46,6 @@ public class Reel {
         this.setup = setup;
     }
 
-
-    public void setReturnLevel(int returnLevel) {
-        this.returnLevel = returnLevel;
-    }
 
     public void setHoldable(boolean holdable) {
         this.holdable = holdable;
@@ -107,15 +96,17 @@ public class Reel {
         }
     }
 
-
     public void spin() {
-
         Random random = new Random();
         // Generate random integers in range 0 to 999
         int randomStop = random.nextInt(1000);
-        if (getHeld() == false) {
+        if (!getHeld()) {
             setVisibleStop(randomStop);
         }
+    }
+
+    public Symbol getSymbol(int stopNumber) {
+        return this.setup.get(stopNumber);
     }
 }
 

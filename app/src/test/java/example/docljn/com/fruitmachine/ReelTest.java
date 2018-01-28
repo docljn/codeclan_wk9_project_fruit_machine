@@ -31,18 +31,14 @@ public class ReelTest {
         setup.add(Symbol.DIAMOND);
         setup.add(Symbol.HEART);
         setup.add(Symbol.HEART);
-        reel = new Reel(setup, 2);
+        reel = new Reel(setup);
+
+        //TODO: work out how returnLevel will affect game (or even if you will implement it)
     }
 
     @Test
-    public void getsNumberOfStopsDefaultIsEight(){
+    public void getsNumberOfStopsFromSetup(){
         assertEquals(8, reel.getNumberOfStops());
-    }
-
-    @Test
-    public void getsReelReturnLevel(){
-        assertEquals(2, reel.getReturnLevel());
-
     }
 
     @Test
@@ -54,12 +50,6 @@ public class ReelTest {
     public void setsReelSetup(){
         reel.setSetup(alternativeSetup);
         assertEquals(alternativeSetup, reel.getSetup());
-    }
-
-    @Test
-    public void setsReturnLevel(){
-        reel.setReturnLevel(1);
-        assertEquals(1, reel.getReturnLevel());
     }
 
     @Test
@@ -162,14 +152,11 @@ public class ReelTest {
         assertEquals(0, reel.getVisibleStop());
     }
 
-
+    @Test
+    public void stopCanReturnSymbol(){
+        assertEquals(Symbol.CLUB, reel.getSymbol(0));
+    }
 
 }
 
 
-/*
-@Test - should apply to GAME not REEL
-    public void getsPayTableReference(){
-        assertEquals(1, reel.getImageLookupTable());
-    }
- */
