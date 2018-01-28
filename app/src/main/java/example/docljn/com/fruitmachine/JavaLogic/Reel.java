@@ -77,8 +77,6 @@ public class Reel {
         int before = getVisibleStop() - 1;
         if (before == -1){
             return getNumberOfStops()-1;
-        } else if (before == getNumberOfStops()){
-            return before - (getNumberOfStops()-1);
         }
         return before;
     }
