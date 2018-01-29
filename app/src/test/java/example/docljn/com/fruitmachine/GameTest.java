@@ -59,10 +59,10 @@ public class GameTest {
 
     @Test
     public void canReturnWinLine(){
-        ArrayList<Symbol> expected = new ArrayList<>();
-        expected.add(Symbol.CLUB);
-        expected.add(Symbol.CLUB);
-        expected.add(Symbol.CLUB);
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(0);
+        expected.add(0);
+        expected.add(0);
 
         assertEquals(expected, game.getWinLine());
     }
