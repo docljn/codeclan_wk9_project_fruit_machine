@@ -38,7 +38,8 @@ public class ReelTest {
 
     @Test
     public void getsNumberOfStopsFromSetup(){
-        assertEquals(8, reel.getNumberOfStops());
+        Integer expected = 8;
+        assertEquals(expected, reel.getNumberOfStops());
     }
 
     @Test
@@ -54,37 +55,43 @@ public class ReelTest {
 
     @Test
     public void getsVisibleStopWhichStartsAtZero(){
-        assertEquals(0, reel.getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test
     public void setsVisibleStop(){
         reel.setVisibleStop(3);
-        assertEquals(3, reel.getVisibleStop());
+        Integer expected = 3;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test
     public void stopBeforeFromVisibleStop(){
         reel.setVisibleStop(3);
-        assertEquals(2, reel.getStopBefore());
+        Integer expected = 2;
+        assertEquals(expected, reel.getStopBefore());
     }
 
     @Test
     public void stopAfterFromVisibleStop(){
         reel.setVisibleStop(3);
-        assertEquals(4, reel.getStopAfter());
+        Integer expected = 4;
+        assertEquals(expected, reel.getStopAfter());
     }
 
     @Test
     public void stopCountIsCircularDownwards(){
         reel.setVisibleStop(0);
-        assertEquals(7, reel.getStopBefore());
+        Integer expected = 7;
+        assertEquals(expected, reel.getStopBefore());
     }
 
     @Test
     public void stopCountIsCircularUpwards(){
         reel.setVisibleStop(7);
-        assertEquals(0, reel.getStopAfter());
+        Integer expected = 0;
+        assertEquals(expected, reel.getStopAfter());
     }
 
     @Test
@@ -103,13 +110,15 @@ public class ReelTest {
     @Test
     public void setVisibleStopIsCircular(){
         reel.setVisibleStop(24);
-        assertEquals(0, reel.getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test
     public void setVisibleStopCopesWithNegatives(){
         reel.setVisibleStop(-1);
-        assertEquals(7, reel.getVisibleStop());
+        Integer expected = 7;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test
@@ -126,7 +135,8 @@ public class ReelTest {
     @Test
     public void nudgeMovesOneStopOn(){
         reel.nudge();
-        assertEquals(0, reel.getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
 
@@ -134,7 +144,8 @@ public class ReelTest {
     public void nudgeRequiresNudgeableTrue(){
         reel.setNudgeable(true);
         reel.nudge();
-        assertEquals(1, reel.getVisibleStop());
+        Integer expected = 1;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test
@@ -149,7 +160,8 @@ public class ReelTest {
         reel.setHoldable(true);
         reel.setHeld(true);
         reel.spin();
-        assertEquals(0, reel.getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, reel.getVisibleStop());
     }
 
     @Test

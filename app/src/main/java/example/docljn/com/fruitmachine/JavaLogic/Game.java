@@ -1,9 +1,7 @@
 package example.docljn.com.fruitmachine.JavaLogic;
 
 import java.util.ArrayList;
-import java.util.Collection;
-
-import example.docljn.com.fruitmachine.JavaLogic.Reel;
+import java.util.HashMap;
 
 /**
  * Created by lornanoble on 28/01/2018.
@@ -13,15 +11,20 @@ public class Game {
     private ArrayList<Symbol> reelSetup;
     private ArrayList<Reel> reelSet;
     private int numberOfReels;
+    private HashMap<ArrayList<Integer>, Integer> payTable;
 
-    public Game(int numberOfReels, ArrayList<Symbol> reelSetup) {
+
+    public Game(int numberOfReels, ArrayList<Symbol> reelSetup, HashMap<ArrayList<Integer>, Integer> payTable) {
         this.numberOfReels = numberOfReels;
-        //TODO: all reels are identical, but need to be referred to separately
-        //TODO: consider: do you set up a game with a number of reels and a reel setup, or a specific reel?
+        //TODO: all reels are identical, but need to be referred to separately, thus add 3 new objects
+        //TODO: need to extract this method and include the paytable setup as part of it
         this.reelSet = new ArrayList<>();
         for (int i = 0; i < numberOfReels; i++){
             this.reelSet.add(new Reel(reelSetup));
         }
+        //TODO: work out how to set up the payTable
+        this.payTable = payTable;
+
     }
 
 
@@ -29,17 +32,16 @@ public class Game {
         return this.reelSet;
     }
 
-    public ArrayList<Symbol> getWinLine() {
-        ArrayList<Symbol> winLine = new ArrayList<>();
+    public ArrayList<Integer> getWinLine() {
+        ArrayList<Integer> winLine = new ArrayList<>();
         for(Reel reel: reelSet){
-            winLine.add(reel.getSymbol(reel.getVisibleStop()));
+            winLine.add(reel.getVisibleStop());
         }
-        // TODO:
-        // for loop repeats for number of reels in reelSet
-        // each reel returns visibleSymbol
-        // visibleSymbol added to winLine arraylist
-        //return arraylist
-        //winLine.add();
         return winLine;
+    }
+
+
+    public Integer getWinnings() {
+        return this.payTable.get(getWinLine());
     }
 }

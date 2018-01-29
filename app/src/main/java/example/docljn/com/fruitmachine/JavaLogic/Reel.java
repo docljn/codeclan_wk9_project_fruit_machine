@@ -10,7 +10,7 @@ import java.util.Random;
 public class Reel {
     private boolean nudgeable;
     private boolean holdable;
-    private int visibleStop;
+    private Integer visibleStop;
     private ArrayList<Symbol> setup;
     private boolean held;
 
@@ -22,11 +22,11 @@ public class Reel {
         this.visibleStop = 0;
     }
 
-    public int getNumberOfStops() {
+    public Integer getNumberOfStops() {
         return this.setup.size();
     }
 
-    public int getVisibleStop() {
+    public Integer getVisibleStop() {
         return visibleStop;
     }
 
@@ -57,7 +57,7 @@ public class Reel {
     }
 
 
-    public void setVisibleStop(int visibleStop) {
+    public void setVisibleStop(Integer visibleStop) {
         if (visibleStop < 0){
             visibleStop = getNumberOfStops() + visibleStop;
         }
@@ -65,16 +65,16 @@ public class Reel {
     }
 
 
-    public int getStopBefore() {
-        int before = getVisibleStop() - 1;
+    public Integer getStopBefore() {
+        Integer before = getVisibleStop() - 1;
         if (before == -1){
             return getNumberOfStops()-1;
         }
         return before;
     }
 
-    public int getStopAfter() {
-        int after = getVisibleStop() + 1;
+    public Integer getStopAfter() {
+        Integer after = getVisibleStop() + 1;
         if (after == getNumberOfStops()) {
             return after - getNumberOfStops();
         }
@@ -99,13 +99,13 @@ public class Reel {
     public void spin() {
         Random random = new Random();
         // Generate random integers in range 0 to 999
-        int randomStop = random.nextInt(1000);
+        Integer randomStop = random.nextInt(1000);
         if (!getHeld()) {
             setVisibleStop(randomStop);
         }
     }
 
-    public Symbol getSymbol(int stopNumber) {
+    public Symbol getSymbol(Integer stopNumber) {
         return this.setup.get(stopNumber);
     }
 }
