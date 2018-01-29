@@ -48,12 +48,16 @@ public class Game {
 
     public Integer getWinnings() {
         Integer winnings = 0;
-
-        if (getWinLine().get(0) == getWinLine().get(1) && getWinLine().get(1) == getWinLine().get(2)){
-            winnings = getWinLine().get(1) * numberOfReels * gameCost;
+        ArrayList<Integer> reelValues = getWinLine();
+        for (int i = 0; i < reelValues.size(); i++) {
+            for (int j = i+1; j < reelValues.size(); j++) {
+                if (reelValues.get(i) != reelValues.get(j)){
+                    return winnings;
+                } else {
+                    winnings = getWinLine().get(1) * numberOfReels * gameCost;
+                }
+            }
         }
-
-
 
         return winnings;
     }
