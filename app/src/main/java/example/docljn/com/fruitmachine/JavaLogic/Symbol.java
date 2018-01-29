@@ -18,4 +18,13 @@ public enum Symbol {
         this.imageId = imageId;
     }
 
+
+    public int getValue() {
+        return value;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
 }

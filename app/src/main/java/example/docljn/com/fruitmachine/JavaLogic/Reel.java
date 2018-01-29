@@ -46,7 +46,6 @@ public class Reel {
         this.setup = setup;
     }
 
-
     public void setHoldable(boolean holdable) {
         this.holdable = holdable;
     }
@@ -89,6 +88,9 @@ public class Reel {
     public void setNudgeable(boolean nudgeable) {
         this.nudgeable = nudgeable;
     }
+
+    // todo: award nudge/hold randomly in reels?
+
 
     public void nudge() {
         if (getNudgeable()) {

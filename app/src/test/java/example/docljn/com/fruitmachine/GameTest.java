@@ -20,22 +20,22 @@ public class GameTest {
 
 
     Game game;
-    ArrayList<Symbol> setup;
+    ArrayList<Symbol> reelSetup;
 
     HashMap<ArrayList<Integer>, Integer> paytable;
 
 
     @Before
     public void before(){
-        setup = new ArrayList<>();
-        setup.add(Symbol.CLUB);
-        setup.add(Symbol.DIAMOND);
-        setup.add(Symbol.HEART);
-        setup.add(Symbol.SPADE);
-        setup.add(Symbol.CLUB);
-        setup.add(Symbol.HEART);
-        setup.add(Symbol.DIAMOND);
-        setup.add(Symbol.HEART);
+        reelSetup = new ArrayList<>();
+        reelSetup.add(Symbol.CLUB);
+        reelSetup.add(Symbol.DIAMOND);
+        reelSetup.add(Symbol.HEART);
+        reelSetup.add(Symbol.SPADE);
+        reelSetup.add(Symbol.CLUB);
+        reelSetup.add(Symbol.HEART);
+        reelSetup.add(Symbol.DIAMOND);
+        reelSetup.add(Symbol.HEART);
 
         paytable = new HashMap<>();
         ArrayList<Integer> jackpot = new ArrayList<>();
@@ -43,26 +43,53 @@ public class GameTest {
         jackpot.add(4);
         jackpot.add(4);
 
-        paytable.put(jackpot, 10);
+        ArrayList<Integer> win1 = new ArrayList<>();
+        win1.add(1);
+        win1.add(2);
+        win1.add(3);
+
+        ArrayList<Integer> win2 = new ArrayList<>();
+        win2.add(1);
+        win2.add(1);
+        win2.add(1);
+
+        ArrayList<Integer> win3 = new ArrayList<>();
+        win3.add(2);
+        win3.add(2);
+        win3.add(2);
+
+        ArrayList<Integer> win4 = new ArrayList<>();
+        win4.add(3);
+        win4.add(3);
+        win4.add(3);
+
+
+        paytable.put(jackpot, 200);
+        paytable.put(win1, 100);
+        paytable.put(win2, 50);
+        paytable.put(win3, 40);
+        paytable.put(win4, 20);
+
 
 //        gameSetup = new HashMap<>();
-//        gameSetup.put(paytable, setup);
+//        gameSetup.put(paytable, reelSetup);
 
 
-        game = new Game(3, setup, paytable);
+        game = new Game(3, reelSetup, paytable);
     }
 
     @Test
     public void hasReelSetSizeSetByNumberOfReels(){
         assertEquals(3, game.getReelSet().size());
+        //todo: do you need to know the number of reels in the game?
     }
 
     @Test
     public void canReturnWinLine(){
         ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(0);
-        expected.add(0);
-        expected.add(0);
+        expected.add(2);
+        expected.add(2);
+        expected.add(2);
 
         assertEquals(expected, game.getWinLine());
     }
@@ -74,11 +101,48 @@ public class GameTest {
             reel.setVisibleStop(4);
         }
 
-        Integer expected = 10;
+        Integer expected = 40;
 
         assertEquals(expected, game.getWinnings());
 
     }
+
+    @Test
+    public void canRecordPlayerCredits(){
+        Integer expected = 0;
+        assertEquals(expected, game.getPlayerCredits());
+    }
+
+    @Test
+    public void canChangePlayerCredits(){
+        Integer expected = 100;
+        game.changePlayerCredits(100);
+        assertEquals(expected, game.getPlayerCredits());
+    }
+
+    @Test
+    public void playReducesPlayerCredits(){
+        game.changePlayerCredits(100);
+        game.play();
+        Integer expected = 80;
+        assertEquals(expected, game.getPlayerCredits());
+    }
+
+    @Test
+    public void playRequiresMinimumCredit(){
+        game.play();
+        Integer expected = 0;
+        assertEquals(expected, game.getPlayerCredits());
+    }
+
+    @Test
+    public void playSpinsReels(){
+        game.changePlayerCredits(100);
+        game.play();
+        //todo: how to actually test this?
+    }
+
+
 
 
 }
