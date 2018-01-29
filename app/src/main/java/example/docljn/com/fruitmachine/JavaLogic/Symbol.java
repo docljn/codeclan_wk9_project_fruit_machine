@@ -5,10 +5,10 @@ package example.docljn.com.fruitmachine.JavaLogic;
  */
 
 public enum Symbol {
-    DIAMOND(1, 1),
-    CLUB(2, 2),
-    HEART(3, 3),
-    SPADE(4, 4);
+    ONE(1, 1),
+    TWO(2, 2),
+    FOUR(4, 3),
+    TEN(10, 4);
 
     private int value;
     private int imageId;

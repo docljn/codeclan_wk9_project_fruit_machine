@@ -27,15 +27,14 @@ public class GameTest {
 
     @Before
     public void before(){
-        reelSetup = new ArrayList<>();
-        reelSetup.add(Symbol.CLUB);
-        reelSetup.add(Symbol.DIAMOND);
-        reelSetup.add(Symbol.HEART);
-        reelSetup.add(Symbol.SPADE);
-        reelSetup.add(Symbol.CLUB);
-        reelSetup.add(Symbol.HEART);
-        reelSetup.add(Symbol.DIAMOND);
-        reelSetup.add(Symbol.HEART);
+
+        ArrayList<Integer> imageReferences = new ArrayList<>();
+        imageReferences.add(1);
+        imageReferences.add(2);
+        imageReferences.add(3);
+        imageReferences.add(4);
+
+
 
         paytable = new HashMap<>();
         ArrayList<Integer> jackpot = new ArrayList<>();
@@ -75,7 +74,7 @@ public class GameTest {
 //        gameSetup.put(paytable, reelSetup);
 
 
-        game = new Game(3, reelSetup, paytable);
+        game = new Game(3, imageReferences, paytable);
     }
 
     @Test

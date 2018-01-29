@@ -14,8 +14,17 @@ public class Reel {
     private ArrayList<Symbol> setup;
     private boolean held;
 
-    public Reel(ArrayList<Symbol> setup) {
-        this.setup = setup;
+    public Reel() {
+        setup = new ArrayList<>();  //TODO: eventually, allow for different reel setups!
+        setup.add(Symbol.ONE);
+        setup.add(Symbol.TWO);
+        setup.add(Symbol.FOUR);
+        setup.add(Symbol.TEN);
+        setup.add(Symbol.ONE);
+        setup.add(Symbol.TWO);
+        setup.add(Symbol.FOUR);
+        setup.add(Symbol.ONE);
+
         this.held = false;
         this.holdable = false;
         this.nudgeable = false;

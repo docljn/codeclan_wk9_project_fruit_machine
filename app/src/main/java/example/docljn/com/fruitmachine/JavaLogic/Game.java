@@ -9,20 +9,21 @@ import java.util.HashMap;
 
 public class Game {
     private Integer numberOfReels;
-    private ArrayList<Symbol> reelSetup;
+    private ArrayList<Integer> imageReferences;
     private ArrayList<Reel> reelSet;
     private HashMap<ArrayList<Integer>, Integer> payTable;
     private Integer playerCredits;
     private Integer gameCost;
 
 
-    public Game(Integer numberOfReels, ArrayList<Symbol> reelSetup, HashMap<ArrayList<Integer>, Integer> payTable) {
+    public Game(Integer numberOfReels, ArrayList<Integer> imageReferences, HashMap<ArrayList<Integer>, Integer> payTable) {
         this.numberOfReels = numberOfReels;
+        this.imageReferences = imageReferences;
         //TODO: all reels are identical, but need to be referred to separately, thus add 3 new objects
         //TODO: need to extract this method and include the paytable setup as part of it?
         this.reelSet = new ArrayList<>();
         for (int i = 0; i < numberOfReels; i++){
-            this.reelSet.add(new Reel(reelSetup));
+            this.reelSet.add(new Reel());
         }
         //TODO: work out how to set up the payTable
         this.payTable = payTable;
@@ -30,6 +31,8 @@ public class Game {
         this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no getter or setter!
 
     }
+
+    //TODO: extract game setup method instead of passing in arguments?
 
 
     public ArrayList<Reel> getReelSet() {

@@ -23,15 +23,15 @@ public class ReelTest {
     @Before
     public void before(){
         setup = new ArrayList<>();
-        setup.add(Symbol.CLUB);
-        setup.add(Symbol.DIAMOND);
-        setup.add(Symbol.HEART);
-        setup.add(Symbol.SPADE);
-        setup.add(Symbol.CLUB);
-        setup.add(Symbol.DIAMOND);
-        setup.add(Symbol.HEART);
-        setup.add(Symbol.HEART);
-        reel = new Reel(setup);
+        setup.add(Symbol.ONE);
+        setup.add(Symbol.TWO);
+        setup.add(Symbol.FOUR);
+        setup.add(Symbol.TEN);
+        setup.add(Symbol.ONE);
+        setup.add(Symbol.TWO);
+        setup.add(Symbol.FOUR);
+        setup.add(Symbol.ONE);
+        reel = new Reel();
 
         //TODO: work out how returnLevel will affect game (or even if you will implement it)
     }
@@ -166,7 +166,7 @@ public class ReelTest {
 
     @Test
     public void stopCanReturnSymbol(){
-        assertEquals(Symbol.CLUB, reel.getSymbol(0));
+        assertEquals(Symbol.ONE, reel.getSymbol(0));
     }
 
 }
