@@ -9,35 +9,29 @@ import java.util.HashMap;
 
 public class Game {
     private Integer numberOfReels;
-    private ArrayList<Integer> imageReferences;
+    private ArrayList<Integer> imageReferences;  // TODO: how to have images changeable within the game?
     private ArrayList<Reel> reelSet;
     private Integer playerCredits;
     private Integer gameCost;
 
 
-    public Game(Integer numberOfReels, ArrayList<Integer> imageReferences) {
+    public Game(Integer numberOfReels) {
         this.numberOfReels = numberOfReels;
-        this.imageReferences = imageReferences;
-        //TODO: all reels are identical, but need to be referred to separately, thus add 3 new objects
-        //TODO: need to extract this method and include the paytable setup as part of it?
         this.reelSet = new ArrayList<>();
         for (int i = 0; i < numberOfReels; i++){
             this.reelSet.add(new Reel());
         }
-        //TODO: work out how to set up the payTable
         this.playerCredits = 0;
         this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no getter or setter!
 
     }
-
-    //TODO: extract game setup method instead of passing in arguments?
 
 
     public ArrayList<Reel> getReelSet() {
         return this.reelSet;
     }
 
-    public ArrayList<Integer> getWinLine() { //todo: this returns the stops, I need the value of the symbol of those stops!
+    public ArrayList<Integer> getWinLine() {
         ArrayList<Integer> winLine = new ArrayList<>();
         for(Reel reel: reelSet){
             winLine.add(reel.getSymbol(reel.getVisibleStop()).getValue());
@@ -58,7 +52,6 @@ public class Game {
                 }
             }
         }
-
         return winnings;
     }
 

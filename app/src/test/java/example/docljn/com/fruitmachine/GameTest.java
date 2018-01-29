@@ -30,7 +30,7 @@ public class GameTest {
         imageReferences.add(3);
         imageReferences.add(4);
 
-        game = new Game(3, imageReferences);
+        game = new Game(3);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class GameTest {
 
     @Test
     public void canCalculateResultFromFiveReelWinLine4s(){
-        game = new Game(5, imageReferences);
+        game = new Game(5);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -82,7 +82,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSame(){
-        game = new Game(5, imageReferences);
+        game = new Game(5);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);

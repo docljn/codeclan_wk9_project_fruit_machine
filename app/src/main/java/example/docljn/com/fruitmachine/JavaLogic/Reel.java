@@ -98,7 +98,6 @@ public class Reel {
         this.nudgeable = nudgeable;
     }
 
-    // todo: award nudge/hold randomly in reels?
 
 
     public void nudge() {
@@ -114,6 +113,13 @@ public class Reel {
         if (!getHeld()) {
             setVisibleStop(randomStop);
         }
+        if (randomStop % 20 == 0){
+            setNudgeable(true);
+        }
+        if (randomStop % 24 == 0){
+            setHoldable(true);
+        }
+        // todo: award nudge/hold randomly in reels AND TEST FOR IT?
     }
 
     public Symbol getSymbol(Integer stopNumber) {
