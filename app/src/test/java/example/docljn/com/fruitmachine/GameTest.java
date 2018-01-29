@@ -27,54 +27,13 @@ public class GameTest {
 
     @Before
     public void before(){
-
         ArrayList<Integer> imageReferences = new ArrayList<>();
         imageReferences.add(1);
         imageReferences.add(2);
         imageReferences.add(3);
         imageReferences.add(4);
 
-
-
-        paytable = new HashMap<>();
-        ArrayList<Integer> jackpot = new ArrayList<>();
-        jackpot.add(4);
-        jackpot.add(4);
-        jackpot.add(4);
-
-        ArrayList<Integer> win1 = new ArrayList<>();
-        win1.add(1);
-        win1.add(2);
-        win1.add(3);
-
-        ArrayList<Integer> win2 = new ArrayList<>();
-        win2.add(1);
-        win2.add(1);
-        win2.add(1);
-
-        ArrayList<Integer> win3 = new ArrayList<>();
-        win3.add(2);
-        win3.add(2);
-        win3.add(2);
-
-        ArrayList<Integer> win4 = new ArrayList<>();
-        win4.add(3);
-        win4.add(3);
-        win4.add(3);
-
-
-        paytable.put(jackpot, 200);
-        paytable.put(win1, 100);
-        paytable.put(win2, 50);
-        paytable.put(win3, 40);
-        paytable.put(win4, 20);
-
-
-//        gameSetup = new HashMap<>();
-//        gameSetup.put(paytable, reelSetup);
-
-
-        game = new Game(3, imageReferences, paytable);
+        game = new Game(3, imageReferences);
     }
 
     @Test
@@ -86,25 +45,36 @@ public class GameTest {
     @Test
     public void canReturnWinLine(){
         ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(2);
-        expected.add(2);
-        expected.add(2);
+        expected.add(1);
+        expected.add(1);
+        expected.add(1);
 
         assertEquals(expected, game.getWinLine());
     }
 
+
+//    TODO: Change from a hardcoded payTable to a logic-based win
     @Test
-    public void canCalculateResultFromWinLine(){
+    public void canCalculateResultFromThreeReelWinLine10s(){
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
-            reel.setVisibleStop(4);
+            reel.setVisibleStop(3);
         }
-
-        Integer expected = 40;
-
+        Integer expected = 600;
         assertEquals(expected, game.getWinnings());
-
     }
+
+    @Test
+    public void canCalculateResultFromThreeReelWinLine4s(){
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+        }
+        Integer expected = 240;
+        assertEquals(expected, game.getWinnings());
+    }
+
+
 
     @Test
     public void canRecordPlayerCredits(){

@@ -11,12 +11,11 @@ public class Game {
     private Integer numberOfReels;
     private ArrayList<Integer> imageReferences;
     private ArrayList<Reel> reelSet;
-    private HashMap<ArrayList<Integer>, Integer> payTable;
     private Integer playerCredits;
     private Integer gameCost;
 
 
-    public Game(Integer numberOfReels, ArrayList<Integer> imageReferences, HashMap<ArrayList<Integer>, Integer> payTable) {
+    public Game(Integer numberOfReels, ArrayList<Integer> imageReferences) {
         this.numberOfReels = numberOfReels;
         this.imageReferences = imageReferences;
         //TODO: all reels are identical, but need to be referred to separately, thus add 3 new objects
@@ -26,7 +25,6 @@ public class Game {
             this.reelSet.add(new Reel());
         }
         //TODO: work out how to set up the payTable
-        this.payTable = payTable;
         this.playerCredits = 0;
         this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no getter or setter!
 
@@ -49,14 +47,15 @@ public class Game {
 
 
     public Integer getWinnings() {
-        Integer winnings = this.payTable.get(getWinLine());
-        if (winnings != null) {
-            return winnings;
-        } else {
-            return 0;
-        }
-        //todo: winnings should depend on the game stake?
+        Integer winnings = 0;
 
+        if (getWinLine().get(0) == getWinLine().get(1) && getWinLine().get(1) == getWinLine().get(2)){
+            winnings = getWinLine().get(1) * numberOfReels * gameCost;
+        }
+
+
+
+        return winnings;
     }
 
     public Integer getPlayerCredits() {
