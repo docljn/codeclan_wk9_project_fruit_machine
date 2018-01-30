@@ -3,14 +3,9 @@ package example.docljn.com.fruitmachine;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import example.docljn.com.fruitmachine.JavaLogic.Game;
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
-import example.docljn.com.fruitmachine.JavaLogic.Symbol;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -42,9 +37,9 @@ public class GameTest {
     @Test
     public void canReturnWinLine(){
         ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(1);
-        expected.add(1);
-        expected.add(1);
+        expected.add(0);
+        expected.add(0);
+        expected.add(0);
 
         assertEquals(expected, game.getWinLine());
     }
@@ -56,7 +51,7 @@ public class GameTest {
         for(Reel reel:reels){
             reel.setVisibleStop(3);
         }
-        Integer expected = 600;
+        Integer expected = 300;
         assertEquals(expected, game.getWinnings());
     }
 
@@ -66,7 +61,7 @@ public class GameTest {
         for(Reel reel:reels){
             reel.setVisibleStop(2);
         }
-        Integer expected = 240;
+        Integer expected = 120;
         assertEquals(expected, game.getWinnings());
     }
 
@@ -77,12 +72,49 @@ public class GameTest {
         for(Reel reel:reels){
             reel.setVisibleStop(2);
         }
-        Integer expected = 400;
+        Integer expected = 200;
         assertEquals(expected, game.getWinnings());
     }
 
     @Test
-    public void noWinIfFourOutOfFiveTheSame(){
+    public void NoWinIfFirstTwoOutOfThreeTheSame() {
+        ArrayList<Reel> reels = game.getReelSet();
+        for (Reel reel : reels) {
+            reel.setVisibleStop(2);
+        }
+        reels.get(2).setVisibleStop(3);
+        System.out.println(reels.get(2).getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
+
+    @Test
+    public void NoWinIfLastTwoOutOfThreeTheSame() {
+        ArrayList<Reel> reels = game.getReelSet();
+        for (Reel reel : reels) {
+            reel.setVisibleStop(2);
+        }
+        reels.get(0).setVisibleStop(3);
+        System.out.println(reels.get(2).getVisibleStop());
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
+
+
+    @Test
+    public void noWinIfFourOutOfFiveTheSameChangedStopOne(){
+        game = new Game(5);
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+        }
+        game.getReelSet().get(0).setVisibleStop(0);
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
+
+    @Test
+    public void noWinIfFourOutOfFiveTheSameChangedStopTwo(){
         game = new Game(5);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
@@ -93,11 +125,46 @@ public class GameTest {
         assertEquals(expected, game.getWinnings());
     }
 
+    @Test
+    public void noWinIfFourOutOfFiveTheSameChangedStopThree(){
+        game = new Game(5);
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+        }
+        game.getReelSet().get(2).setVisibleStop(0);
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
+
+    @Test
+    public void noWinIfFourOutOfFiveTheSameChangedStopFour(){
+        game = new Game(5);
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+        }
+        game.getReelSet().get(3).setVisibleStop(0);
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
+
+    @Test
+    public void noWinIfFourOutOfFiveTheSameChangedStopFive(){
+        game = new Game(5);
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+        }
+        game.getReelSet().get(4).setVisibleStop(0);
+        Integer expected = 0;
+        assertEquals(expected, game.getWinnings());
+    }
 
 
     @Test
     public void canRecordPlayerCredits(){
-        Integer expected = 0;
+        Integer expected = 100;
         assertEquals(expected, game.getPlayerCredits());
     }
 
@@ -144,9 +211,9 @@ public class GameTest {
             reel.setVisibleStop(2);
             reel.setHoldable(true);
             reel.setHeld(true);
-        }  // sets up reels so they will not change on play, hence giving a predictable winning amount of 240
+        }  // sets up reels so they will not change on play, hence giving a predictable winning amount of 120
         game.play();
-        Integer expected = 320;
+        Integer expected = 200;
         assertEquals(expected, game.getPlayerCredits());
     }
 
