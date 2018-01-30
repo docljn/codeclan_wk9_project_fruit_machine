@@ -21,7 +21,7 @@ public class Game {
         for (int i = 0; i < numberOfReels; i++){
             this.reelSet.add(new Reel());
         }
-        this.playerCredits = 0;
+        this.playerCredits = 100;  // player starts with 5 free games
         this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no getter or setter!
 
     }
@@ -69,8 +69,10 @@ public class Game {
             for (Reel reel: getReelSet()) {
                 reel.spin();
             }
-            System.out.println(getWinnings());  //todo: work out how to actually test this!!
-            return getWinnings();
+            Integer won = getWinnings();
+            changePlayerCredits(won);
+            System.out.println(won);  //todo: work out how to actually test this!!
+            return won;
         } else {
             return null;
         }

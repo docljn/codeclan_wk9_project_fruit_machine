@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+
+    <!--FIRST REEL-->
+
+    <ImageView
+        android:id="@+id/imageViewTop1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewWinLine1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom1"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTop1"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop1"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewBottom1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNudge1"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine1"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <Button
+        android:id="@+id/buttonNudge1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nudge"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHold1"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewBottom1"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom1" />
+
+    <Button
+        android:id="@+id/buttonHold1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Hold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNudge1"
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge1" />
+
+
+    <!--SECOND REEL-->
+
+    <ImageView
+        android:id="@+id/imageViewTop2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewTop3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTop1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewWinLine2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTop2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop2"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewBottom2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNudge2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine2"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <Button
+        android:id="@+id/buttonNudge2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nudge"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHold2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewBottom2"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom2" />
+
+    <Button
+        android:id="@+id/buttonHold2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Hold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNudge2"
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge2" />
+
+
+    <!--THIRD REEL-->
+
+    <ImageView
+        android:id="@+id/imageViewTop3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewWinLine3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom3"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTop3"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop3"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <ImageView
+        android:id="@+id/imageViewBottom3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNudge3"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine3"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <Button
+        android:id="@+id/buttonNudge3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nudge"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHold3"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewBottom3"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom3" />
+
+    <Button
+        android:id="@+id/buttonHold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Hold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNudge3"
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge3" />
+</android.support.constraint.ConstraintLayout>

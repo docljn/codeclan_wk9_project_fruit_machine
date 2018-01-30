@@ -1,6 +1,7 @@
 package example.docljn.com.fruitmachine;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -102,12 +103,12 @@ public class GameTest {
 
     @Test
     public void canChangePlayerCredits(){
-        Integer expected = 100;
+        Integer expected = 200;
         game.changePlayerCredits(100);
         assertEquals(expected, game.getPlayerCredits());
     }
 
-    @Test
+    @Test @Ignore("This will only work if there are no winnings.")
     public void playReducesPlayerCredits(){
         game.changePlayerCredits(100);
         game.play();
@@ -117,6 +118,7 @@ public class GameTest {
 
     @Test
     public void playRequiresMinimumCredit(){
+        game.changePlayerCredits(-100);
         game.play();
         Integer expected = 0;
         assertEquals(expected, game.getPlayerCredits());
@@ -133,6 +135,20 @@ public class GameTest {
     public void getsNumberOfReels(){
         Integer expected = 3;
         assertEquals(expected, game.getNumberOfReels());
+    }
+
+    @Test
+    public void playerWinningsIncreasesCredits(){
+        ArrayList<Reel> reels = game.getReelSet();
+        for(Reel reel:reels){
+            reel.setVisibleStop(2);
+            reel.setHoldable(true);
+            reel.setHeld(true);
+        }  // sets up reels so they will not change on play, hence giving a predictable winning amount of 240
+        game.play();
+        Integer expected = 320;
+        assertEquals(expected, game.getPlayerCredits());
+
     }
 
 
