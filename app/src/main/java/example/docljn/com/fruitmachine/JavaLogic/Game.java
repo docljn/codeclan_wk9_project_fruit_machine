@@ -40,7 +40,7 @@ public class Game {
     }
 
 
-    public Integer getWinnings() {
+    public Integer getWinnings() { //TODO: BUG FOUND!
         Integer winnings = 0;
         ArrayList<Integer> reelValues = getWinLine();
         for (int i = 0; i < reelValues.size(); i++) {

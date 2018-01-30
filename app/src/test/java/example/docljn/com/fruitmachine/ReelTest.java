@@ -25,11 +25,11 @@ public class ReelTest {
         setup = new ArrayList<>();
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
-        setup.add(Symbol.FOUR);
-        setup.add(Symbol.TEN);
+        setup.add(Symbol.THREE);
+        setup.add(Symbol.FIVE);
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
-        setup.add(Symbol.FOUR);
+        setup.add(Symbol.THREE);
         setup.add(Symbol.ONE);
         reel = new Reel();
 
@@ -167,6 +167,13 @@ public class ReelTest {
     @Test
     public void stopCanReturnSymbol(){
         assertEquals(Symbol.ONE, reel.getSymbol(0));
+    }
+
+
+    @Test
+    public void stopValueIsCorrectFromEnum(){
+        reel.setVisibleStop(3);
+        assertEquals(5, reel.getSymbol(reel.getVisibleStop()).getValue());
     }
 
 }

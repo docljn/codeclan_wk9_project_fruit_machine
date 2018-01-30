@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.HashMap;
 import example.docljn.com.fruitmachine.JavaLogic.Game;
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
@@ -29,6 +30,10 @@ public class SplashScreen extends AppCompatActivity {
 
         TextView credits = findViewById(R.id.textViewCredits);
         credits.setText(game.getPlayerCredits().toString() + " FREE CREDITS");
+        setReel1Images();
+        setReel2Images();
+        setReel3Images();
+
     }
 
 
@@ -47,30 +52,93 @@ public class SplashScreen extends AppCompatActivity {
         updateCreditText();
     }
 
+//    protected ArrayList<Integer> getReelStops(Integer reelNumber){
+//        Reel reel = game.getReelSet().get(reelNumber-1);
+//        ArrayList<Integer> stopNumbers = new ArrayList<>();
+//        Integer visibleStop = reel.getVisibleStop();
+//        Integer before = reel.getStopBefore();
+//        Integer after = reel.getStopAfter();
+//    }
+
     protected void setReel1Images(){
         Reel reel = game.getReelSet().get(0);
+        Integer before = reel.getStopBefore();
+        Integer visibleStop = reel.getVisibleStop();
+        Integer after = reel.getStopAfter();
+
+
+        Integer imageRefTop = reel.getSymbol(before).getValue();
+        Integer imageRefWin = reel.getSymbol(visibleStop).getValue();
+        Integer imageRefBottom = reel.getSymbol(after).getValue();
+
+
+        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop1);
+        Integer imageIDTop = cardImages.get(imageRefTop);
+        imageViewTopLine1.setImageResource(imageIDTop);
+
+        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine1);
+        Integer imageIDWin= cardImages.get(imageRefWin);
+        imageViewWinLine1.setImageResource(imageIDWin);
+
+
+        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom1);
+        Integer imageIDBottom = cardImages.get(imageRefBottom);
+        imageViewBottomLine1.setImageResource(imageIDBottom);
+    }
+
+
+
+    protected void setReel2Images(){
+        Reel reel = game.getReelSet().get(1);
+        Integer before = reel.getStopBefore();
+        Integer visibleStop = reel.getVisibleStop();
+        Integer after = reel.getStopAfter();
+
+
+        Integer imageRefTop = reel.getSymbol(before).getValue();
+        Integer imageRefWin = reel.getSymbol(visibleStop).getValue();
+        Integer imageRefBottom = reel.getSymbol(after).getValue();
+
+        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop2);
+        Integer imageIDTop = cardImages.get(imageRefTop);
+        imageViewTopLine1.setImageResource(imageIDTop);
+
+        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine2);
+        Integer imageIDWin= cardImages.get(imageRefWin);
+        imageViewWinLine1.setImageResource(imageIDWin);
+
+
+        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom2);
+        Integer imageIDBottom = cardImages.get(imageRefBottom);
+        imageViewBottomLine1.setImageResource(imageIDBottom);
+    }
+
+
+
+
+    protected void setReel3Images(){
+        Reel reel = game.getReelSet().get(2);
         Integer visibleStop = reel.getVisibleStop();
         Integer before = reel.getStopBefore();
         Integer after = reel.getStopAfter();
 
-        Integer imageRef = reel.getSymbol(reel.getVisibleStop()).getValue();
 
-        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop1);
-        Integer imageIDTop = cardImages.get(imageRef);
+        Integer imageRefTop = reel.getSymbol(before).getValue();
+        Integer imageRefWin = reel.getSymbol(visibleStop).getValue();
+        Integer imageRefBottom = reel.getSymbol(after).getValue();
+
+        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop3);
+        Integer imageIDTop = cardImages.get(imageRefTop);
         imageViewTopLine1.setImageResource(imageIDTop);
 
-        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine1);
-        Integer imageIDWin= cardImages.get(reel.getSymbol(reel.getVisibleStop()).getValue());
+        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine3);
+        Integer imageIDWin= cardImages.get(imageRefWin);
         imageViewWinLine1.setImageResource(imageIDWin);
 
 
-
-        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom1);
-        Integer imageIDBottom = cardImages.get(reel.getSymbol(reel.getVisibleStop()).getValue());
+        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom3);
+        Integer imageIDBottom = cardImages.get(imageRefBottom);
         imageViewBottomLine1.setImageResource(imageIDBottom);
-
-
-
     }
 
 
@@ -79,6 +147,8 @@ public class SplashScreen extends AppCompatActivity {
         updateCreditText();
 
         setReel1Images();
+        setReel2Images();
+        setReel3Images();
 
 
 
