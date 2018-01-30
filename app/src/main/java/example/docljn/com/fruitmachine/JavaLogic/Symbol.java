@@ -7,8 +7,8 @@ package example.docljn.com.fruitmachine.JavaLogic;
 public enum Symbol {
     ONE(1),
     TWO(2),
-    FOUR(4),
-    TEN(10);
+    THREE(3),
+    FIVE(5);
 
     private int value;
 

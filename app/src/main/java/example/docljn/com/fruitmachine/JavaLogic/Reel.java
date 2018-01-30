@@ -18,11 +18,11 @@ public class Reel {
         setup = new ArrayList<>();  //TODO: eventually, allow for different reel setups!
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
-        setup.add(Symbol.FOUR);
-        setup.add(Symbol.TEN);
+        setup.add(Symbol.THREE);
+        setup.add(Symbol.FIVE);
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
-        setup.add(Symbol.FOUR);
+        setup.add(Symbol.THREE);
         setup.add(Symbol.ONE);
 
         this.held = false;
