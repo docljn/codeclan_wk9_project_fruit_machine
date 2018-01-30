@@ -37,9 +37,9 @@ public class GameTest {
     @Test
     public void canReturnWinLine(){
         ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(0);
-        expected.add(0);
-        expected.add(0);
+        expected.add(1);
+        expected.add(1);
+        expected.add(1);
 
         assertEquals(expected, game.getWinLine());
     }
@@ -61,7 +61,7 @@ public class GameTest {
         for(Reel reel:reels){
             reel.setVisibleStop(2);
         }
-        Integer expected = 120;
+        Integer expected = 180;
         assertEquals(expected, game.getWinnings());
     }
 
@@ -72,7 +72,7 @@ public class GameTest {
         for(Reel reel:reels){
             reel.setVisibleStop(2);
         }
-        Integer expected = 200;
+        Integer expected = 300;
         assertEquals(expected, game.getWinnings());
     }
 
@@ -83,7 +83,6 @@ public class GameTest {
             reel.setVisibleStop(2);
         }
         reels.get(2).setVisibleStop(3);
-        System.out.println(reels.get(2).getVisibleStop());
         Integer expected = 0;
         assertEquals(expected, game.getWinnings());
     }
@@ -95,7 +94,6 @@ public class GameTest {
             reel.setVisibleStop(2);
         }
         reels.get(0).setVisibleStop(3);
-        System.out.println(reels.get(2).getVisibleStop());
         Integer expected = 0;
         assertEquals(expected, game.getWinnings());
     }
@@ -211,9 +209,9 @@ public class GameTest {
             reel.setVisibleStop(2);
             reel.setHoldable(true);
             reel.setHeld(true);
-        }  // sets up reels so they will not change on play, hence giving a predictable winning amount of 120
+        }  // sets up reels so they will not change on play, hence giving a predictable winning amount of 180
         game.play();
-        Integer expected = 200;
+        Integer expected = 260;
         assertEquals(expected, game.getPlayerCredits());
     }
 

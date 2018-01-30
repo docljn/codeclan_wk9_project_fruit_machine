@@ -17,7 +17,7 @@ public class Reel {
     public Reel() {
         setup = new ArrayList<>();
         //TODO: eventually, allow for different reel setups!
-        //TODO: consider adding randomness to the reel layouts
+        //TODO: consider adding randomness to the reel layouts BUT this will make testing very much harder
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
         setup.add(Symbol.THREE);

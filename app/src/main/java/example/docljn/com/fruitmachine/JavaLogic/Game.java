@@ -73,7 +73,7 @@ public class Game {
             }
             Integer won = getWinnings();
             changePlayerCredits(won);
-            System.out.println(won);  //todo: work out how to actually test this!!
+            //System.out.println(won);  //todo: work out how to actually test this!!
             return won;
         } else {
             return null;

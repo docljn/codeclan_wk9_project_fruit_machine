@@ -20,10 +20,11 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        // TODO: Have a second hashmap with alternative images, and make the set image methods configurable
         cardImages = new HashMap<>();
-        cardImages.put(0, R.drawable.club);
-        cardImages.put(1, R.drawable.diamond);
-        cardImages.put(2, R.drawable.heart);
+        cardImages.put(1, R.drawable.club);
+        cardImages.put(2, R.drawable.diamond);
+        cardImages.put(3, R.drawable.heart);
         cardImages.put(5, R.drawable.spade);
 
         game = new Game(3);
@@ -72,18 +73,18 @@ public class SplashScreen extends AppCompatActivity {
         Integer imageRefBottom = reel.getSymbol(after).getValue();
 
 
-        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop1);
+        ImageView imageViewTop = findViewById(R.id.imageViewTop1);
         Integer imageIDTop = cardImages.get(imageRefTop);
-        imageViewTopLine1.setImageResource(imageIDTop);
+        imageViewTop.setImageResource(imageIDTop);
 
-        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine1);
+        ImageView imageViewWin = findViewById(R.id.imageViewWinLine1);
         Integer imageIDWin= cardImages.get(imageRefWin);
-        imageViewWinLine1.setImageResource(imageIDWin);
+        imageViewWin.setImageResource(imageIDWin);
 
 
-        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom1);
+        ImageView imageViewBottom = findViewById(R.id.imageViewBottom1);
         Integer imageIDBottom = cardImages.get(imageRefBottom);
-        imageViewBottomLine1.setImageResource(imageIDBottom);
+        imageViewBottom.setImageResource(imageIDBottom);
     }
 
 
@@ -99,18 +100,18 @@ public class SplashScreen extends AppCompatActivity {
         Integer imageRefWin = reel.getSymbol(visibleStop).getValue();
         Integer imageRefBottom = reel.getSymbol(after).getValue();
 
-        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop2);
+        ImageView imageViewTop = findViewById(R.id.imageViewTop2);
         Integer imageIDTop = cardImages.get(imageRefTop);
-        imageViewTopLine1.setImageResource(imageIDTop);
+        imageViewTop.setImageResource(imageIDTop);
 
-        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine2);
+        ImageView imageViewWin = findViewById(R.id.imageViewWinLine2);
         Integer imageIDWin= cardImages.get(imageRefWin);
-        imageViewWinLine1.setImageResource(imageIDWin);
+        imageViewWin.setImageResource(imageIDWin);
 
 
-        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom2);
+        ImageView imageViewBottom = findViewById(R.id.imageViewBottom2);
         Integer imageIDBottom = cardImages.get(imageRefBottom);
-        imageViewBottomLine1.setImageResource(imageIDBottom);
+        imageViewBottom.setImageResource(imageIDBottom);
     }
 
 
@@ -127,18 +128,18 @@ public class SplashScreen extends AppCompatActivity {
         Integer imageRefWin = reel.getSymbol(visibleStop).getValue();
         Integer imageRefBottom = reel.getSymbol(after).getValue();
 
-        ImageView imageViewTopLine1 = findViewById(R.id.imageViewTop3);
+        ImageView imageViewTop = findViewById(R.id.imageViewTop3);
         Integer imageIDTop = cardImages.get(imageRefTop);
-        imageViewTopLine1.setImageResource(imageIDTop);
+        imageViewTop.setImageResource(imageIDTop);
 
-        ImageView imageViewWinLine1 = findViewById(R.id.imageViewWinLine3);
+        ImageView imageViewWin = findViewById(R.id.imageViewWinLine3);
         Integer imageIDWin= cardImages.get(imageRefWin);
-        imageViewWinLine1.setImageResource(imageIDWin);
+        imageViewWin.setImageResource(imageIDWin);
 
 
-        ImageView imageViewBottomLine1 = findViewById(R.id.imageViewBottom3);
+        ImageView imageViewBottom = findViewById(R.id.imageViewBottom3);
         Integer imageIDBottom = cardImages.get(imageRefBottom);
-        imageViewBottomLine1.setImageResource(imageIDBottom);
+        imageViewBottom.setImageResource(imageIDBottom);
     }
 
 
@@ -156,6 +157,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
+        // TODO: IF YOU WANT TO MAKE THIS CONFIGURABLE
         // TODO: add buttons to set the number of reels to 3 or 5 on the front page?
         // TODO: Set Grid View column count to match reel number
         // TODO Do I need a layout inflater if I want a generic display set by number of reels?
