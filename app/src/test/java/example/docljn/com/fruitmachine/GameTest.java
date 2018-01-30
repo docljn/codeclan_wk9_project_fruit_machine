@@ -148,7 +148,12 @@ public class GameTest {
         game.play();
         Integer expected = 320;
         assertEquals(expected, game.getPlayerCredits());
+    }
 
+    @Test
+    public void getsGameCost(){
+        Integer expected = 20;
+        assertEquals(expected, game.getGameCost());
     }
 
 

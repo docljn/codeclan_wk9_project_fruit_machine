@@ -22,7 +22,7 @@ public class Game {
             this.reelSet.add(new Reel());
         }
         this.playerCredits = 100;  // player starts with 5 free games
-        this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no getter or setter!
+        this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no setter!
 
     }
 
@@ -80,5 +80,10 @@ public class Game {
 
     public Integer getNumberOfReels() {
         return this.numberOfReels;
+    }
+
+
+    public Integer getGameCost() {
+        return this.gameCost;
     }
 }

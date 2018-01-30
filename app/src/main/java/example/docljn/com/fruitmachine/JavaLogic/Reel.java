@@ -125,6 +125,7 @@ public class Reel {
     public Symbol getSymbol(Integer stopNumber) {
         return this.setup.get(stopNumber);
     }
+    
 }
 
 
