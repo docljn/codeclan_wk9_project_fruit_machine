@@ -149,6 +149,13 @@ public class ReelTest {
     }
 
     @Test
+    public void nudgeingNudgeableReelSetsNudgeableFalse(){
+        reel.setNudgeable(true);
+        reel.nudge();
+        assertEquals(false, reel.getNudgeable());
+    }
+
+    @Test
     public void spinSetsRandomVisibleStop(){
         //TODO: how to test a random method?
         reel.spin();
@@ -165,6 +172,22 @@ public class ReelTest {
     }
 
     @Test
+    public void spinningHeldReelSetsHeldFalse(){
+        reel.setHoldable(true);
+        reel.setHeld(true);
+        reel.spin();
+        assertEquals(false, reel.getHeld());
+    }
+
+    @Test
+    public void spinningHeldReelSetsHoldableFalse(){
+        reel.setHoldable(true);
+        reel.setHeld(true);
+        reel.spin();
+        assertEquals(false, reel.getHoldable());
+    }
+
+    @Test
     public void stopCanReturnSymbol(){
         assertEquals(Symbol.ONE, reel.getSymbol(0));
     }
@@ -175,6 +198,8 @@ public class ReelTest {
         reel.setVisibleStop(3);
         assertEquals(5, reel.getSymbol(reel.getVisibleStop()).getValue());
     }
+
+
 
 }
 

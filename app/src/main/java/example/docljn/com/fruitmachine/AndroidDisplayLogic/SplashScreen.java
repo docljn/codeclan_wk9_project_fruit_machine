@@ -149,9 +149,6 @@ public class SplashScreen extends AppCompatActivity {
         setReel1Images();
         setReel2Images();
         setReel3Images();
-
-
-
     }
 
 

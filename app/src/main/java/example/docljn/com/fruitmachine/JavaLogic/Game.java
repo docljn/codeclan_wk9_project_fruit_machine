@@ -22,7 +22,7 @@ public class Game {
             this.reelSet.add(new Reel());
         }
         this.playerCredits = 100;  // player starts with 5 free games
-        this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no setter!
+        this.gameCost = 20; //TODO: game cost is hardcoded at the moment, no setter!  Could pass in a value?
 
     }
 
@@ -40,7 +40,7 @@ public class Game {
     }
 
 
-    public Integer getWinnings() { //TODO: BUG FOUND!
+    public Integer getWinnings() {
         Integer winnings = getWinLine().get(1) * numberOfReels * gameCost;
         ArrayList<Integer> reelValues = getWinLine();
         for (int i = 0; i < reelValues.size(); i++) {

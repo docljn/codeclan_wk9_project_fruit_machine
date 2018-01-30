@@ -15,7 +15,9 @@ public class Reel {
     private boolean held;
 
     public Reel() {
-        setup = new ArrayList<>();  //TODO: eventually, allow for different reel setups!
+        setup = new ArrayList<>();
+        //TODO: eventually, allow for different reel setups!
+        //TODO: consider adding randomness to the reel layouts
         setup.add(Symbol.ONE);
         setup.add(Symbol.TWO);
         setup.add(Symbol.THREE);
@@ -103,6 +105,7 @@ public class Reel {
     public void nudge() {
         if (getNudgeable()) {
             setVisibleStop(getVisibleStop() + 1);
+            setNudgeable(false);
         }
     }
 
@@ -112,6 +115,9 @@ public class Reel {
         Integer randomStop = random.nextInt(1000);
         if (!getHeld()) {
             setVisibleStop(randomStop);
+        } else {
+            setHeld(false);
+            setHoldable(false);
         }
         if (randomStop % 20 == 0){
             setNudgeable(true);
