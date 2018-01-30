@@ -41,14 +41,12 @@ public class Game {
 
 
     public Integer getWinnings() { //TODO: BUG FOUND!
-        Integer winnings = 0;
+        Integer winnings = getWinLine().get(1) * numberOfReels * gameCost;
         ArrayList<Integer> reelValues = getWinLine();
         for (int i = 0; i < reelValues.size(); i++) {
             for (int j = i+1; j < reelValues.size(); j++) {
                 if (reelValues.get(i) != reelValues.get(j)){
-                    return winnings;
-                } else {
-                    winnings = getWinLine().get(1) * numberOfReels * gameCost;
+                    winnings = 0;
                 }
             }
         }
