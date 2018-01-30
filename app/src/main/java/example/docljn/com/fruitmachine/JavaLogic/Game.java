@@ -75,4 +75,8 @@ public class Game {
             return null;
         }
     }
+
+    public Integer getNumberOfReels() {
+        return this.numberOfReels;
+    }
 }

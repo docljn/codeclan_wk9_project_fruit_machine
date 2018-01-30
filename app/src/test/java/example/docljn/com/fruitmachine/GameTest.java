@@ -129,6 +129,12 @@ public class GameTest {
         //todo: how to actually test this?
     }
 
+    @Test
+    public void getsNumberOfReels(){
+        Integer expected = 3;
+        assertEquals(expected, game.getNumberOfReels());
+    }
+
 
 
 
