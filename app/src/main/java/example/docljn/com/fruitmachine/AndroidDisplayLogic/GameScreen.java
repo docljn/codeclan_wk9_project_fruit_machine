@@ -14,7 +14,8 @@ import example.docljn.com.fruitmachine.JavaLogic.Game;
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
 import example.docljn.com.fruitmachine.R;
 
-public class SplashScreen extends AppCompatActivity {
+
+public class GameScreen extends AppCompatActivity {
     Game game;
     HashMap<Integer, Integer> cardImages;
     HashMap<Integer, Integer> fruitImages;
@@ -23,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_game_screen);
         // TODO:  make the set image methods configurable
         fruitImages = new HashMap<>();
         fruitImages.put(1, R.drawable.cherry);
@@ -242,7 +243,10 @@ public class SplashScreen extends AppCompatActivity {
 
     protected void onPlayButtonClick(View view){  // have to pass in a view even if you don't use it!
         if (game.sufficientCredits()) {  // hopefully stops a crash when play is clicked with zero credits
-            Integer won = game.play();
+
+            //TODO: refactor so that play is void and you get won from showresults?
+            game.play();
+            Integer won = game.getWinnings();
             showResults(won);
         } else {
             Toast.makeText(this, "You need more credits to play", Toast.LENGTH_LONG).show();
