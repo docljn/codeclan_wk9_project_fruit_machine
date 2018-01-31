@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHold1"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom1"
         app:layout_constraintStart_toStartOf="@+id/imageViewBottom1"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 
     <Button
         android:id="@+id/buttonHold1"
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge1"
         app:layout_constraintStart_toStartOf="@+id/buttonNudge1"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 
 
     <!--SECOND REEL-->
@@ -109,7 +109,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHold2"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom2"
         app:layout_constraintStart_toStartOf="@+id/imageViewBottom2"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 
     <Button
         android:id="@+id/buttonHold2"
@@ -120,7 +120,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge2"
         app:layout_constraintStart_toStartOf="@+id/buttonNudge2"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 
 
     <!--THIRD REEL-->
@@ -169,7 +169,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonHold3"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom3"
         app:layout_constraintStart_toStartOf="@+id/imageViewBottom3"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 
     <Button
         android:id="@+id/buttonHold3"
@@ -180,5 +180,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge3"
         app:layout_constraintStart_toStartOf="@+id/buttonNudge3"
-        android:backgroundTint="@color/orange"/>
+        android:background="@color/orange"/>
 </android.support.constraint.ConstraintLayout>

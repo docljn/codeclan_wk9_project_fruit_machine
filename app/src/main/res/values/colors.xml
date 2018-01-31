@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name ="orange">#f48f42</color>
-    <color name = "colorAction">#424ef4</color>
+    <color name = "colorAction">#303F9F</color>
+    <color name = "textColorAction">#f48f42</color>
 </resources>

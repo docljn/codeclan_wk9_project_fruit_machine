@@ -138,13 +138,27 @@ public class SplashScreen extends AppCompatActivity {
         imageViewBottom.setImageResource(imageIDBottom);
     }
 
+    protected void buttonActivate(Button button){
+        button.setBackgroundColor(getResources().getColor(R.color.colorAction));
+        button.setTextColor(getResources().getColor(R.color.textColorAction));
 
-    protected void setNudgeButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
-        Button button = findViewById(R.id.buttonNudge1);
+    }
+
+
+    protected void setButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
+        Button nudgeButton = findViewById(R.id.buttonNudge1);
+        Button holdButton = findViewById(R.id.buttonHold1);
         Reel reel = game.getReelSet().get(0);
+
         reel.setNudgeable(true);
-        if (!reel.getNudgeable()){
-            button.setVisibility(View.INVISIBLE);
+        reel.setHoldable(true);
+
+        if (reel.getNudgeable()){
+            buttonActivate(nudgeButton);
+        }
+
+        if (reel.getHoldable()){
+            buttonActivate(holdButton);
         }
 
     }
@@ -175,7 +189,7 @@ public class SplashScreen extends AppCompatActivity {
             setReel1Images();
             setReel2Images();
             setReel3Images();
-            setNudgeButtonColourIfActive();
+            setButtonColourIfActive();
         } else {
             Toast.makeText(this, "You need more credits to play", Toast.LENGTH_LONG).show();
         }
