@@ -88,4 +88,8 @@ public class Game {
     public Integer getGameCost() {
         return this.gameCost;
     }
+
+    public boolean sufficientCredits() {
+        return getPlayerCredits() >= getGameCost();
+    }
 }

@@ -221,6 +221,20 @@ public class GameTest {
         assertEquals(expected, game.getGameCost());
     }
 
+    @Test
+    public void playWithNoCreditsDoesNothing(){
+        game.changePlayerCredits(-100);
+        game.play();
+        Integer expected = 0;
+        assertEquals(expected, game.getPlayerCredits());
+    }
+
+    @Test
+    public void gameReturnsInsufficientCredits(){
+        game.changePlayerCredits(-100);
+        assertEquals(false, game.sufficientCredits());
+    }
+
 
 
 

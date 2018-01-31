@@ -3,8 +3,10 @@ package example.docljn.com.fruitmachine.AndroidDisplayLogic;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import example.docljn.com.fruitmachine.JavaLogic.Game;
@@ -53,13 +55,7 @@ public class SplashScreen extends AppCompatActivity {
         updateCreditText();
     }
 
-//    protected ArrayList<Integer> getReelStops(Integer reelNumber){
-//        Reel reel = game.getReelSet().get(reelNumber-1);
-//        ArrayList<Integer> stopNumbers = new ArrayList<>();
-//        Integer visibleStop = reel.getVisibleStop();
-//        Integer before = reel.getStopBefore();
-//        Integer after = reel.getStopAfter();
-//    }
+    // TODO: work out how to extract these methods, if possible!
 
     protected void setReel1Images(){
         Reel reel = game.getReelSet().get(0);
@@ -143,13 +139,46 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
-    protected void onPlayButtonClick(View button){  // have to pass in a view even if you don't use it!
-        game.play();
-        updateCreditText();
+    protected void setNudgeButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
+        Button button = findViewById(R.id.buttonNudge1);
+        Reel reel = game.getReelSet().get(0);
+        reel.setNudgeable(true);
+        if (!reel.getNudgeable()){
+            button.setVisibility(View.INVISIBLE);
+        }
 
-        setReel1Images();
-        setReel2Images();
-        setReel3Images();
+    }
+
+    protected void jackpotVisible(Boolean visible){
+        ImageView jackpot = findViewById(R.id.imageViewJackpot);
+        if (visible) {
+            jackpot.setVisibility(View.VISIBLE);
+        }
+        if (!visible) {
+            jackpot.setVisibility(View.GONE);
+        }
+    }
+
+
+
+
+    protected void onPlayButtonClick(View button){  // have to pass in a view even if you don't use it!
+        if (game.sufficientCredits()) {  // hopefully stops a crash when play is clicked with zero credits
+            Integer won = game.play();
+            updateCreditText();
+            if (won > 0) {
+                jackpotVisible(true);
+            } else {
+                jackpotVisible(false);
+            }
+
+            setReel1Images();
+            setReel2Images();
+            setReel3Images();
+            setNudgeButtonColourIfActive();
+        } else {
+            Toast.makeText(this, "You need more credits to play", Toast.LENGTH_LONG).show();
+        }
     }
 
 
