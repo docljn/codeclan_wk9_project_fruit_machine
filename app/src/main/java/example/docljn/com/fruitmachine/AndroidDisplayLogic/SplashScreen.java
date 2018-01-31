@@ -58,7 +58,7 @@ public class SplashScreen extends AppCompatActivity {
 
     // TODO: work out how to extract these methods, if possible!
 
-    protected void setReel1Images(){
+    private void setReel1Images(){
         Reel reel = game.getReelSet().get(0);
         Integer before = reel.getStopBefore();
         Integer visibleStop = reel.getVisibleStop();
@@ -86,7 +86,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
-    protected void setReel2Images(){
+    private void setReel2Images(){
         Reel reel = game.getReelSet().get(1);
         Integer before = reel.getStopBefore();
         Integer visibleStop = reel.getVisibleStop();
@@ -114,7 +114,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
-    protected void setReel3Images(){
+    private void setReel3Images(){
         Reel reel = game.getReelSet().get(2);
         Integer visibleStop = reel.getVisibleStop();
         Integer before = reel.getStopBefore();
@@ -139,14 +139,14 @@ public class SplashScreen extends AppCompatActivity {
         imageViewBottom.setImageResource(imageIDBottom);
     }
 
-    protected void buttonActivate(Button button){
+    private void buttonActivate(Button button){
         button.setBackgroundColor(getResources().getColor(R.color.colorAction));
         button.setTextColor(getResources().getColor(R.color.textColorAction));
 
     }
 
 
-    protected void setButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
+    private void setButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
         // Reel 1
         Button nudgeButton = findViewById(R.id.buttonNudge1);
         Button holdButton = findViewById(R.id.buttonHold1);
@@ -186,7 +186,7 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
-    protected void jackpotVisible(Boolean visible){
+    private void jackpotVisible(Boolean visible){
         ImageView jackpot = findViewById(R.id.imageViewJackpot);
         if (visible) {
             jackpot.setVisibility(View.VISIBLE);
@@ -196,23 +196,27 @@ public class SplashScreen extends AppCompatActivity {
         }
     }
 
+    private void showResults(Integer gameResult){
+        updateCreditText();
+        if (gameResult > 0) {
+            jackpotVisible(true);
+        } else {
+            jackpotVisible(false);
+        }
+
+        setReel1Images();
+        setReel2Images();
+        setReel3Images();
+        setButtonColourIfActive();
+    }
+
 
 
 
     protected void onPlayButtonClick(View button){  // have to pass in a view even if you don't use it!
         if (game.sufficientCredits()) {  // hopefully stops a crash when play is clicked with zero credits
             Integer won = game.play();
-            updateCreditText();
-            if (won > 0) {
-                jackpotVisible(true);
-            } else {
-                jackpotVisible(false);
-            }
-
-            setReel1Images();
-            setReel2Images();
-            setReel3Images();
-            setButtonColourIfActive();
+            showResults(won);
         } else {
             Toast.makeText(this, "You need more credits to play", Toast.LENGTH_LONG).show();
         }
@@ -223,13 +227,8 @@ public class SplashScreen extends AppCompatActivity {
         Integer reelNumber = Integer.valueOf(button.getTag().toString());
 
         reelSet.get(reelNumber).nudge();
-        setReel1Images();
-        setReel2Images();
-        setReel3Images();
-        setButtonColourIfActive();
-
-        //TODO: check game status and update credits jackpot etc after nudge
-        game.getWinnings();
+        Integer result = game.getWinnings();
+        showResults(result);
 
 
     }
