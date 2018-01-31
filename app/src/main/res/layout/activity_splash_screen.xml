@@ -18,7 +18,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/jackpot"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/buttonBuy10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +67,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/buttonBuy10"
         app:layout_constraintEnd_toStartOf="@+id/buttonBuy10"
         android:layout_marginRight="8dp"
-        android:backgroundTint="@color/orange"/>
+        android:textColor="@color/orange"
+        android:backgroundTint="@color/colorAction"/>
 
     <Button
         android:id="@+id/buttonBuy10"
@@ -83,7 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCredits"
-        android:backgroundTint="@color/orange"/>
+        android:textColor="@color/orange"
+        android:backgroundTint="@color/colorAction"/>
 
     <Button
         android:id="@+id/buttonbuy20"
@@ -96,7 +97,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/buttonBuy10"
         app:layout_constraintStart_toEndOf="@+id/buttonBuy10"
         android:layout_marginLeft="8dp"
-        android:backgroundTint="@color/orange"/>
+        android:textColor="@color/orange"
+        android:backgroundTint="@color/colorAction"/>
 
 
     <include
