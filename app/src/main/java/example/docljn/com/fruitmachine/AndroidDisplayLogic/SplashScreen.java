@@ -142,11 +142,15 @@ public class SplashScreen extends AppCompatActivity {
     private void buttonActivate(Button button){
         button.setBackgroundColor(getResources().getColor(R.color.colorAction));
         button.setTextColor(getResources().getColor(R.color.textColorAction));
+    }
 
+    private void buttonDeactivate(Button button){
+        button.setBackgroundColor(getResources().getColor(R.color.orange));
+        button.setTextColor(getResources().getColor(R.color.black));
     }
 
 
-    private void setButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
+    private void setButtonColour(){ //TODO: REFACTOR setButtonColour it's WAY TOO LONG!
         // Reel 1
         Button nudgeButton = findViewById(R.id.buttonNudge1);
         Button holdButton = findViewById(R.id.buttonHold1);
@@ -154,9 +158,14 @@ public class SplashScreen extends AppCompatActivity {
 
         if (reel.getNudgeable()){
             buttonActivate(nudgeButton);
+        } else {
+            buttonDeactivate(nudgeButton);
         }
+
         if (reel.getHoldable()){
             buttonActivate(holdButton);
+        } else {
+            buttonDeactivate(holdButton);
         }
 
         // Reel 2
@@ -166,9 +175,13 @@ public class SplashScreen extends AppCompatActivity {
 
         if (reel2.getNudgeable()){
             buttonActivate(nudgeButton2);
+        } else {
+            buttonDeactivate(nudgeButton2);
         }
         if (reel2.getHoldable()){
             buttonActivate(holdButton2);
+        }else {
+            buttonDeactivate(holdButton2);
         }
 
 
@@ -179,9 +192,13 @@ public class SplashScreen extends AppCompatActivity {
 
         if (reel3.getNudgeable()){
             buttonActivate(nudgeButton3);
+        } else {
+            buttonDeactivate(nudgeButton3);
         }
         if (reel3.getHoldable()){
             buttonActivate(holdButton3);
+        } else {
+            buttonDeactivate(holdButton3);
         }
 
     }
@@ -207,13 +224,13 @@ public class SplashScreen extends AppCompatActivity {
         setReel1Images();
         setReel2Images();
         setReel3Images();
-        setButtonColourIfActive();
+        setButtonColour();
     }
 
 
 
 
-    protected void onPlayButtonClick(View button){  // have to pass in a view even if you don't use it!
+    protected void onPlayButtonClick(View view){  // have to pass in a view even if you don't use it!
         if (game.sufficientCredits()) {  // hopefully stops a crash when play is clicked with zero credits
             Integer won = game.play();
             showResults(won);
@@ -228,6 +245,7 @@ public class SplashScreen extends AppCompatActivity {
 
         reelSet.get(reelNumber).nudge();
         Integer result = game.getWinnings();
+        //TODO: I want to update the button here if it's been deactivated - change buttonColour method....
         showResults(result);
 
 

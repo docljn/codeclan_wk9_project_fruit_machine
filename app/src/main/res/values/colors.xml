@@ -6,4 +6,5 @@
     <color name ="orange">#f48f42</color>
     <color name = "colorAction">#303F9F</color>
     <color name = "textColorAction">#f48f42</color>
+    <color name = "black">#000000</color>
 </resources>
