@@ -245,9 +245,17 @@ public class SplashScreen extends AppCompatActivity {
 
         reelSet.get(reelNumber).nudge();
         Integer result = game.getWinnings();
-        //TODO: I want to update the button here if it's been deactivated - change buttonColour method....
         showResults(result);
+    }
 
+    protected void onHoldButtonClick(View button){
+        ArrayList<Reel> reelSet = game.getReelSet();
+        Integer reelNumber = Integer.valueOf(button.getTag().toString());
+        reelSet.get(reelNumber).setHeld(true);
+
+        Button castButton = (Button)button;
+        castButton.setBackgroundColor(getResources().getColor(R.color.black));
+        castButton.setTextColor(getResources().getColor(R.color.black));
 
     }
 

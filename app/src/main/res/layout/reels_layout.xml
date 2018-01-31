@@ -57,15 +57,16 @@
 
     <Button
         android:id="@+id/buttonHold1"
-        android:tag="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:background="@color/orange"
+        android:onClick="onHoldButtonClick"
+        android:tag="0"
         android:text="Hold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge1"
-        app:layout_constraintStart_toStartOf="@+id/buttonNudge1"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge1" />
 
 
     <!--SECOND REEL-->
@@ -118,15 +119,16 @@
 
     <Button
         android:id="@+id/buttonHold2"
-        android:tag="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:background="@color/orange"
+        android:onClick="onHoldButtonClick"
+        android:tag="1"
         android:text="Hold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge2"
-        app:layout_constraintStart_toStartOf="@+id/buttonNudge2"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge2" />
 
 
     <!--THIRD REEL-->
@@ -181,13 +183,14 @@
 
     <Button
         android:id="@+id/buttonHold3"
-        android:tag="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:background="@color/orange"
+        android:onClick="onHoldButtonClick"
+        android:tag="2"
         android:text="Hold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/buttonNudge3"
-        app:layout_constraintStart_toStartOf="@+id/buttonNudge3"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/buttonNudge3" />
 </android.support.constraint.ConstraintLayout>
