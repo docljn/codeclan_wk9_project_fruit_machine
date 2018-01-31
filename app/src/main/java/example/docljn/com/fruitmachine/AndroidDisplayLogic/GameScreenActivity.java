@@ -1,7 +1,9 @@
 package example.docljn.com.fruitmachine.AndroidDisplayLogic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +17,7 @@ import example.docljn.com.fruitmachine.JavaLogic.Reel;
 import example.docljn.com.fruitmachine.R;
 
 
-public class GameScreen extends AppCompatActivity {
+public class GameScreenActivity extends AppCompatActivity {
     Game game;
     HashMap<Integer, Integer> cardImages;
     HashMap<Integer, Integer> fruitImages;
@@ -38,7 +40,22 @@ public class GameScreen extends AppCompatActivity {
         cardImages.put(3, R.drawable.heart);
         cardImages.put(5, R.drawable.spade);
 
-        game = new Game(3, fruitImages);
+        // Get tag from parent activity:
+        // Create a new Intent which will be the same as the intent that was sent by startActivity on the source activity
+        // There will only ever be one intent
+        Intent intent = getIntent();
+        // Cast the extra, which is an object, to be a String
+        String imageSet = (String)intent.getSerializableExtra("imageSet");
+        Log.d("GameActivity", imageSet);
+
+        if (imageSet == "fruitImages"){
+            game = new Game(3, fruitImages);
+        } else if (imageSet == "cardImages"){
+            game = new Game(3, cardImages);
+        } else {
+            game = new Game(3, fruitImages);
+        }
+
 
         TextView credits = findViewById(R.id.textViewCredits);
         credits.setText(game.getPlayerCredits().toString() + " FREE CREDITS");
