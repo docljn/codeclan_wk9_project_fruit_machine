@@ -17,26 +17,35 @@ import example.docljn.com.fruitmachine.R;
 public class SplashScreen extends AppCompatActivity {
     Game game;
     HashMap<Integer, Integer> cardImages;
+    HashMap<Integer, Integer> fruitImages;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        // TODO: Have a second hashmap with alternative images, and make the set image methods configurable
+        // TODO:  make the set image methods configurable
+        fruitImages = new HashMap<>();
+        fruitImages.put(1, R.drawable.cherry);
+        fruitImages.put(2, R.drawable.lemon);
+        fruitImages.put(3, R.drawable.watermelon);
+        fruitImages.put(5, R.drawable.seven);
+
         cardImages = new HashMap<>();
         cardImages.put(1, R.drawable.club);
         cardImages.put(2, R.drawable.diamond);
         cardImages.put(3, R.drawable.heart);
         cardImages.put(5, R.drawable.spade);
 
-        game = new Game(3);
+        game = new Game(3, fruitImages);
 
         TextView credits = findViewById(R.id.textViewCredits);
         credits.setText(game.getPlayerCredits().toString() + " FREE CREDITS");
-        setReel1Images();
-        setReel2Images();
-        setReel3Images();
+
+        //TODO: extract set images to separate method call!
+        setReel1Images(game.getImageSet());
+        setReel2Images(game.getImageSet());
+        setReel3Images(game.getImageSet());
 
     }
 
@@ -58,7 +67,7 @@ public class SplashScreen extends AppCompatActivity {
 
     // TODO: work out how to extract these methods, if possible!
 
-    private void setReel1Images(){
+    private void setReel1Images(HashMap<Integer, Integer> reelImages){
         Reel reel = game.getReelSet().get(0);
         Integer before = reel.getStopBefore();
         Integer visibleStop = reel.getVisibleStop();
@@ -71,22 +80,22 @@ public class SplashScreen extends AppCompatActivity {
 
 
         ImageView imageViewTop = findViewById(R.id.imageViewTop1);
-        Integer imageIDTop = cardImages.get(imageRefTop);
+        Integer imageIDTop = reelImages.get(imageRefTop);
         imageViewTop.setImageResource(imageIDTop);
 
         ImageView imageViewWin = findViewById(R.id.imageViewWinLine1);
-        Integer imageIDWin= cardImages.get(imageRefWin);
+        Integer imageIDWin= reelImages.get(imageRefWin);
         imageViewWin.setImageResource(imageIDWin);
 
 
         ImageView imageViewBottom = findViewById(R.id.imageViewBottom1);
-        Integer imageIDBottom = cardImages.get(imageRefBottom);
+        Integer imageIDBottom = reelImages.get(imageRefBottom);
         imageViewBottom.setImageResource(imageIDBottom);
     }
 
 
 
-    private void setReel2Images(){
+    private void setReel2Images(HashMap<Integer, Integer> reelImages){
         Reel reel = game.getReelSet().get(1);
         Integer before = reel.getStopBefore();
         Integer visibleStop = reel.getVisibleStop();
@@ -98,23 +107,23 @@ public class SplashScreen extends AppCompatActivity {
         Integer imageRefBottom = reel.getSymbol(after).getValue();
 
         ImageView imageViewTop = findViewById(R.id.imageViewTop2);
-        Integer imageIDTop = cardImages.get(imageRefTop);
+        Integer imageIDTop = reelImages.get(imageRefTop);
         imageViewTop.setImageResource(imageIDTop);
 
         ImageView imageViewWin = findViewById(R.id.imageViewWinLine2);
-        Integer imageIDWin= cardImages.get(imageRefWin);
+        Integer imageIDWin= reelImages.get(imageRefWin);
         imageViewWin.setImageResource(imageIDWin);
 
 
         ImageView imageViewBottom = findViewById(R.id.imageViewBottom2);
-        Integer imageIDBottom = cardImages.get(imageRefBottom);
+        Integer imageIDBottom = reelImages.get(imageRefBottom);
         imageViewBottom.setImageResource(imageIDBottom);
     }
 
 
 
 
-    private void setReel3Images(){
+    private void setReel3Images(HashMap<Integer, Integer> reelImages){
         Reel reel = game.getReelSet().get(2);
         Integer visibleStop = reel.getVisibleStop();
         Integer before = reel.getStopBefore();
@@ -126,16 +135,16 @@ public class SplashScreen extends AppCompatActivity {
         Integer imageRefBottom = reel.getSymbol(after).getValue();
 
         ImageView imageViewTop = findViewById(R.id.imageViewTop3);
-        Integer imageIDTop = cardImages.get(imageRefTop);
+        Integer imageIDTop = reelImages.get(imageRefTop);
         imageViewTop.setImageResource(imageIDTop);
 
         ImageView imageViewWin = findViewById(R.id.imageViewWinLine3);
-        Integer imageIDWin= cardImages.get(imageRefWin);
+        Integer imageIDWin= reelImages.get(imageRefWin);
         imageViewWin.setImageResource(imageIDWin);
 
 
         ImageView imageViewBottom = findViewById(R.id.imageViewBottom3);
-        Integer imageIDBottom = cardImages.get(imageRefBottom);
+        Integer imageIDBottom = reelImages.get(imageRefBottom);
         imageViewBottom.setImageResource(imageIDBottom);
     }
 
@@ -211,6 +220,7 @@ public class SplashScreen extends AppCompatActivity {
         if (!visible) {
             jackpot.setVisibility(View.GONE);
         }
+        //TODO: find a way to have the jackpot auto-disappear after a delay
     }
 
     private void showResults(Integer gameResult){
@@ -221,9 +231,9 @@ public class SplashScreen extends AppCompatActivity {
             jackpotVisible(false);
         }
 
-        setReel1Images();
-        setReel2Images();
-        setReel3Images();
+        setReel1Images(game.getImageSet());
+        setReel2Images(game.getImageSet());
+        setReel3Images(game.getImageSet());
         setButtonColour();
     }
 

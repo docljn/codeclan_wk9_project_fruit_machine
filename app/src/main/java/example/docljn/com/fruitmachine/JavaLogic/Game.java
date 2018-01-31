@@ -9,14 +9,15 @@ import java.util.HashMap;
 
 public class Game {
     private Integer numberOfReels;
-    private ArrayList<Integer> imageReferences;  // TODO: how to have images changeable within the game?
+    private HashMap<Integer, Integer> imageSet;  // TODO: how to have images changeable within the game?
     private ArrayList<Reel> reelSet;
     private Integer playerCredits;
     private Integer gameCost;
 
 
-    public Game(Integer numberOfReels) {
+    public Game(Integer numberOfReels, HashMap<Integer, Integer> imageSet) {
         this.numberOfReels = numberOfReels;
+        this.imageSet = imageSet;
         this.reelSet = new ArrayList<>();
         for (int i = 0; i < numberOfReels; i++){
             this.reelSet.add(new Reel());
@@ -29,6 +30,23 @@ public class Game {
 
     public ArrayList<Reel> getReelSet() {
         return this.reelSet;
+    }
+
+    public Integer getNumberOfReels() {
+        return this.numberOfReels;
+    }
+
+
+    public Integer getGameCost() {
+        return this.gameCost;
+    }
+
+    public HashMap<Integer, Integer> getImageSet() {
+        return this.imageSet;
+    }
+
+    public void setImageSet(HashMap<Integer,Integer> imageSet) {
+        this.imageSet = imageSet;
     }
 
     public ArrayList<Integer> getWinLine() {
@@ -89,16 +107,11 @@ public class Game {
         }
     }
 
-    public Integer getNumberOfReels() {
-        return this.numberOfReels;
-    }
 
-
-    public Integer getGameCost() {
-        return this.gameCost;
-    }
 
     public boolean sufficientCredits() {
         return getPlayerCredits() >= getGameCost();
     }
+
+
 }

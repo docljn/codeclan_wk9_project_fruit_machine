@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import example.docljn.com.fruitmachine.JavaLogic.Game;
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
 import static org.junit.Assert.assertEquals;
@@ -16,17 +18,24 @@ public class GameTest {
 
 
     Game game;
-    ArrayList<Integer> imageReferences;
+    HashMap<Integer, Integer> cardImages;
+    HashMap<Integer, Integer> fruitImages;
 
     @Before
     public void before(){
-        imageReferences = new ArrayList<>();
-        imageReferences.add(1);
-        imageReferences.add(2);
-        imageReferences.add(3);
-        imageReferences.add(4);
+        cardImages = new HashMap<>();
+        cardImages.put(1, R.drawable.club);
+        cardImages.put(2, R.drawable.diamond);
+        cardImages.put(3, R.drawable.heart);
+        cardImages.put(5, R.drawable.spade);
 
-        game = new Game(3);
+        fruitImages = new HashMap<>();
+        fruitImages.put(1, R.drawable.cherry);
+        fruitImages.put(2, R.drawable.lemon);
+        fruitImages.put(3, R.drawable.watermelon);
+        fruitImages.put(5, R.drawable.seven);
+
+        game = new Game(3, cardImages);
     }
 
     @Test
@@ -67,7 +76,7 @@ public class GameTest {
 
     @Test
     public void canCalculateResultFromFiveReelWinLine4s(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -101,7 +110,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSameChangedStopOne(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -113,7 +122,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSameChangedStopTwo(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -125,7 +134,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSameChangedStopThree(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -137,7 +146,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSameChangedStopFour(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -149,7 +158,7 @@ public class GameTest {
 
     @Test
     public void noWinIfFourOutOfFiveTheSameChangedStopFive(){
-        game = new Game(5);
+        game = new Game(5, cardImages);
         ArrayList<Reel> reels = game.getReelSet();
         for(Reel reel:reels){
             reel.setVisibleStop(2);
@@ -233,6 +242,19 @@ public class GameTest {
     public void gameReturnsInsufficientCredits(){
         game.changePlayerCredits(-100);
         assertEquals(false, game.sufficientCredits());
+    }
+
+    @Test
+    public void gameGetsImageSet(){
+        Integer expected = R.drawable.club;
+        assertEquals(expected, game.getImageSet().get(1));
+    }
+
+    @Test
+    public void gameSetsImageSet(){
+        game.setImageSet(fruitImages);
+        Integer expected = R.drawable.cherry;
+        assertEquals(expected, game.getImageSet().get(1));
     }
 
 
