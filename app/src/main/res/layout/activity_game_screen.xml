@@ -61,14 +61,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:background="@color/colorAction"
         android:onClick="onBuyCreditButtonClick"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:tag="200"
         android:text="200 Credits"
+        android:textColor="@color/textColorAction"
         app:layout_constraintBottom_toBottomOf="@+id/buttonBuy10"
         app:layout_constraintEnd_toStartOf="@+id/buttonBuy10"
-        android:layout_marginRight="8dp"
-        android:textColor="@color/textColorAction"
-        android:background="@color/colorAction"/>
+        android:layout_marginRight="8dp" />
 
     <Button
         android:id="@+id/buttonBuy10"
@@ -78,6 +80,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:onClick="onBuyCreditButtonClick"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:tag="1000"
         android:text="1000 Credits"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +96,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:onClick="onBuyCreditButtonClick"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:tag="2000"
         android:text="2000 Credits"
         app:layout_constraintBottom_toBottomOf="@+id/buttonBuy10"

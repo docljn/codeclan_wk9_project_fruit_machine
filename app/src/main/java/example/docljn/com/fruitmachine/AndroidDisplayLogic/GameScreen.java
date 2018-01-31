@@ -256,20 +256,27 @@ public class GameScreen extends AppCompatActivity {
     protected void onNudgeButtonClick(View button){
         ArrayList<Reel> reelSet = game.getReelSet();
         Integer reelNumber = Integer.valueOf(button.getTag().toString());
-
-        reelSet.get(reelNumber).nudge();
-        Integer result = game.getWinnings();
-        showResults(result);
+        Reel reel = reelSet.get(reelNumber);
+        if (reel.getNudgeable()) {
+            reel.nudge();
+            Integer result = game.getWinnings();
+            game.changePlayerCredits(result);
+            showResults(result);
+        }
     }
 
     protected void onHoldButtonClick(View button){
         ArrayList<Reel> reelSet = game.getReelSet();
         Integer reelNumber = Integer.valueOf(button.getTag().toString());
-        reelSet.get(reelNumber).setHeld(true);
 
-        Button castButton = (Button)button;
-        castButton.setBackgroundColor(getResources().getColor(R.color.black));
-        castButton.setTextColor(getResources().getColor(R.color.black));
+        Reel reel = reelSet.get(reelNumber);
+        if (reel.getHoldable()) {
+            reel.setHeld(true);
+
+            Button castButton = (Button) button;
+            castButton.setBackgroundColor(getResources().getColor(R.color.black));
+            castButton.setTextColor(getResources().getColor(R.color.black));
+        }
 
     }
 
