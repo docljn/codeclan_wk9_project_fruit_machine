@@ -47,14 +47,17 @@
         android:id="@+id/buttonNudge1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:onClick="onNudgeButtonClick"
+        android:tag="0"
         android:text="Nudge"
         app:layout_constraintBottom_toTopOf="@+id/buttonHold1"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom1"
-        app:layout_constraintStart_toStartOf="@+id/imageViewBottom1"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom1" />
 
     <Button
         android:id="@+id/buttonHold1"
+        android:tag="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -105,14 +108,17 @@
         android:id="@+id/buttonNudge2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:onClick="onNudgeButtonClick"
+        android:tag="1"
         android:text="Nudge"
         app:layout_constraintBottom_toTopOf="@+id/buttonHold2"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom2"
-        app:layout_constraintStart_toStartOf="@+id/imageViewBottom2"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom2" />
 
     <Button
         android:id="@+id/buttonHold2"
+        android:tag="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -165,14 +171,17 @@
         android:id="@+id/buttonNudge3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:onClick="onNudgeButtonClick"
+        android:tag="2"
         android:text="Nudge"
         app:layout_constraintBottom_toTopOf="@+id/buttonHold3"
         app:layout_constraintEnd_toEndOf="@+id/imageViewBottom3"
-        app:layout_constraintStart_toStartOf="@+id/imageViewBottom3"
-        android:background="@color/orange"/>
+        app:layout_constraintStart_toStartOf="@+id/imageViewBottom3" />
 
     <Button
         android:id="@+id/buttonHold3"
+        android:tag="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

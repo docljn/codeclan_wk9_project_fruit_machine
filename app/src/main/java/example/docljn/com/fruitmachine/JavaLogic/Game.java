@@ -65,18 +65,27 @@ public class Game {
         this.playerCredits += creditsChangedBy;
     }
 
+    //TODO: extract spin reels so that you can check winnings after a nudge!
+
+    public void spinReels(){
+        for (Reel reel: getReelSet()) {
+            reel.spin();
+        }
+    }
+
+
+
+
     public Integer play() {
-        if (getPlayerCredits() >= this.gameCost) {
+        if (sufficientCredits()) {
             changePlayerCredits(-gameCost);
-            for (Reel reel: getReelSet()) {
-                reel.spin();
-            }
+            spinReels();
             Integer won = getWinnings();
             changePlayerCredits(won);
             //System.out.println(won);  //todo: work out how to actually test this!!
             return won;
         } else {
-            return null;
+            return 0;  // TODO: don't return null - it could crash the app if it is ever called, but a void method makes the jackpot output difficult....
         }
     }
 

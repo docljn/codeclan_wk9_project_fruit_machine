@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import example.docljn.com.fruitmachine.JavaLogic.Game;
 import example.docljn.com.fruitmachine.JavaLogic.Reel;
@@ -146,19 +147,41 @@ public class SplashScreen extends AppCompatActivity {
 
 
     protected void setButtonColourIfActive(){ //TODO: complete this method, consider colours or visible/invisible options
+        // Reel 1
         Button nudgeButton = findViewById(R.id.buttonNudge1);
         Button holdButton = findViewById(R.id.buttonHold1);
         Reel reel = game.getReelSet().get(0);
 
-        reel.setNudgeable(true);
-        reel.setHoldable(true);
-
         if (reel.getNudgeable()){
             buttonActivate(nudgeButton);
         }
-
         if (reel.getHoldable()){
             buttonActivate(holdButton);
+        }
+
+        // Reel 2
+        Button nudgeButton2 = findViewById(R.id.buttonNudge2);
+        Button holdButton2 = findViewById(R.id.buttonHold2);
+        Reel reel2 = game.getReelSet().get(1);
+
+        if (reel2.getNudgeable()){
+            buttonActivate(nudgeButton2);
+        }
+        if (reel2.getHoldable()){
+            buttonActivate(holdButton2);
+        }
+
+
+        // Reel 3
+        Button nudgeButton3 = findViewById(R.id.buttonNudge3);
+        Button holdButton3 = findViewById(R.id.buttonHold3);
+        Reel reel3 = game.getReelSet().get(2);
+
+        if (reel3.getNudgeable()){
+            buttonActivate(nudgeButton3);
+        }
+        if (reel3.getHoldable()){
+            buttonActivate(holdButton3);
         }
 
     }
@@ -193,6 +216,22 @@ public class SplashScreen extends AppCompatActivity {
         } else {
             Toast.makeText(this, "You need more credits to play", Toast.LENGTH_LONG).show();
         }
+    }
+
+    protected void onNudgeButtonClick(View button){
+        ArrayList<Reel> reelSet = game.getReelSet();
+        Integer reelNumber = Integer.valueOf(button.getTag().toString());
+
+        reelSet.get(reelNumber).nudge();
+        setReel1Images();
+        setReel2Images();
+        setReel3Images();
+        setButtonColourIfActive();
+
+        //TODO: check game status and update credits jackpot etc after nudge
+        game.getWinnings();
+
+
     }
 
 
