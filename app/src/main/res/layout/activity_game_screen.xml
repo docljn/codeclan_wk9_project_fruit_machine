@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageViewJackpot"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="270dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -41,20 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewJackpot"
         app:layout_constraintVertical_bias="0.03" />
 
-    <ImageButton
-        android:id="@+id/imageButtonPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:onClick="onPlayButtonClick"
-        android:scaleType="fitXY"
-        android:src="@drawable/play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+
 
     <Button
         android:id="@+id/buttonBuy2"
@@ -79,6 +66,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="onBuyCreditButtonClick"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -114,7 +102,24 @@
         app:layout_constraintBottom_toTopOf="@id/imageButtonPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintTop_toBottomOf="@id/buttonBuy10" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:onClick="onPlayButtonClick"
+        android:scaleType="fitXY"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
 
 
