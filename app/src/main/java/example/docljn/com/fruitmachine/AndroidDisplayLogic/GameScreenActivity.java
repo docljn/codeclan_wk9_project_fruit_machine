@@ -48,9 +48,9 @@ public class GameScreenActivity extends AppCompatActivity {
         String imageSet = (String)intent.getSerializableExtra("imageSet");
         Log.d("GameActivity", imageSet);
 
-        if (imageSet == "fruitImages"){
+        if (imageSet.equals("fruitImages")){
             game = new Game(3, fruitImages);
-        } else if (imageSet == "cardImages"){
+        } else if (imageSet.equals("cardImages")){
             game = new Game(3, cardImages);
         } else {
             game = new Game(3, fruitImages);
