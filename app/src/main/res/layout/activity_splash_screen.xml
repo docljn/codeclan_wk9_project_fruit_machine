@@ -55,11 +55,13 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
+        android:tag="suitImages"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonStartPlay"
         app:layout_constraintEnd_toStartOf="@+id/imageButtonFruits"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPictureChoice"
-        app:srcCompat="@drawable/spade" />
+        app:srcCompat="@drawable/spade"
+        android:onClick="onSelectImageButtonClick"/>
 
 
     <!--Second Image Select Button-->
@@ -73,11 +75,14 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:scaleType="fitXY"
+        android:tag="fruitImages"
         app:layout_constraintStart_toEndOf="@id/imageButtonSuits"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonStartPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPictureChoice"
-        app:srcCompat="@drawable/lemon" />
+        app:srcCompat="@drawable/lemon"
+        android:onClick="onSelectImageButtonClick"
+        android:layout_marginRight="8dp" />
 
 
 
@@ -85,14 +90,14 @@
 
 
     <ImageButton
-        android:id="@+id/imageButtonPlay"
+        android:id="@+id/imageButtonStartPlay"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="startPlay"
+        android:onClick="onStartPlayButtonClick"
         android:tag="cardImages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

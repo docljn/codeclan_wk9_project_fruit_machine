@@ -1,6 +1,7 @@
 package example.docljn.com.fruitmachine.AndroidDisplayLogic;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,16 +19,27 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     }
 
-    public void startPlay(View playButtonView) {
-        String imageSet = (String) playButtonView.getTag();
-        Log.d("Intent creation", imageSet);
 
-        Intent intent = new Intent(this, GameScreenActivity.class); //NEW
+
+
+
+    public void onStartPlayButtonClick(View playButtonView) {
+        String imageSet = playButtonView.getTag().toString();
+
+        Intent intent = new Intent(this, GameScreenActivity.class);
         // CARE: .class is called on the target activity
-        intent.putExtra("imageSet", imageSet); //NEW
-        // TODO: think about attaching only the data you will use, rather than the whole object
-        startActivity(intent); //NEW
+        intent.putExtra("imageSet", imageSet);
+        startActivity(intent);
 
         // move to the target activity here and retrieve the extra...
+    }
+
+
+    protected void onSelectImageButtonClick(View button){
+        String imageSet = button.getTag().toString();
+        View playButtonView = findViewById(R.id.imageButtonStartPlay);
+        //TODO: how to set a tag on a button?
+        playButtonView.setTag(imageSet);
+
     }
 }

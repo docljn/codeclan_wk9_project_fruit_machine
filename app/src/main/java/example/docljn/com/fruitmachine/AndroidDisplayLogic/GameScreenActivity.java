@@ -46,7 +46,6 @@ public class GameScreenActivity extends AppCompatActivity {
         Intent intent = getIntent();
         // Cast the extra, which is an object, to be a String
         String imageSet = (String)intent.getSerializableExtra("imageSet");
-        Log.d("GameActivity", imageSet);
 
         if (imageSet.equals("fruitImages")){
             game = new Game(3, fruitImages);
