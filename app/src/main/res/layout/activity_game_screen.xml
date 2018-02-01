@@ -99,7 +99,7 @@
         layout="@layout/reels_layout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/imageButtonCards"
+        app:layout_constraintBottom_toTopOf="@id/imageButtonPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="8dp"
@@ -107,19 +107,20 @@
         app:layout_constraintTop_toBottomOf="@id/buttonBuy10" />
 
     <ImageButton
-        android:id="@+id/imageButtonCards"
+        android:id="@+id/imageButtonPlay"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:onClick="onPlayButtonClick"
-        android:scaleType="fitXY"
-        android:src="@drawable/play"
+        android:scaleType="centerInside"
+        android:src="@drawable/spin_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@mipmap/ic_launcher_round"
+        android:background="@color/white"/>
 
 
 
