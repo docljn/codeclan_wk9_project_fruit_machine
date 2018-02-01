@@ -1,10 +1,8 @@
 package example.docljn.com.fruitmachine.AndroidDisplayLogic;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import example.docljn.com.fruitmachine.R;
@@ -15,8 +13,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-
     }
 
 
