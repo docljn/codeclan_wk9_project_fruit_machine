@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import example.docljn.com.fruitmachine.R;
 
@@ -43,6 +44,16 @@ public class SplashScreenActivity extends AppCompatActivity {
         String imageSet = button.getTag().toString();
         View playButtonView = findViewById(R.id.imageButtonStartPlay);
         playButtonView.setTag(imageSet);
+
+        TextView textViewSelected = findViewById(R.id.textViewSelected);
+
+        if (imageSet.equals("suitImages")) {
+            textViewSelected.setText(R.string.suits_selected);
+        }
+
+        if (imageSet.equals("fruitImages")) {
+            textViewSelected.setText(R.string.fruits_selected);
+        }
 
     }
 }

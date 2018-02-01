@@ -4,4 +4,6 @@
     <string name="buy_200_credits">200 Credits</string>
     <string name="buy_1000_credits">1000 Credits</string>
     <string name="buy_2000_credits">2000 Credits</string>
+    <string name="fruits_selected">Fruits Selected</string>
+    <string name="suits_selected">Suits Selected</string>
 </resources>
