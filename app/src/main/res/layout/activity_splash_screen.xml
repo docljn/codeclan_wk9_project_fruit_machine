@@ -28,7 +28,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="CHOOSE YOUR PICTURES"
+        android:text="Suits or Fruits"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,75 +37,47 @@
     <!--First Image Set-->
 
 
-    <ImageView
-        android:id="@+id/imageViewTop1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewPictureChoice"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:id="@+id/imageViewWinLine1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom1"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewTop1"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewTop1"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:id="@+id/imageViewBottom1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="24dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine1"
-        app:srcCompat="@mipmap/ic_launcher" />
 
 
     <!--Second Image Set-->
 
 
-    <ImageView
-        android:id="@+id/imageViewTop2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewTop1"
-        app:layout_constraintTop_toBottomOf="@id/textViewPictureChoice"
-        app:srcCompat="@mipmap/ic_launcher" />
 
-    <ImageView
-        android:id="@+id/imageViewWinLine2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom2"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewTop2"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewTop2"
-        app:srcCompat="@mipmap/ic_launcher" />
+    <!--First Image Select Button-->
 
-    <ImageView
-        android:id="@+id/imageViewBottom2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="24dp"
+    <ImageButton
+        android:id="@+id/imageButtonSpade"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine2"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonLemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPictureChoice"
+        app:srcCompat="@drawable/spade" />
+
+
+    <!--Second Image Select Button-->
+
+    <ImageButton
+        android:id="@+id/imageButtonLemon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@id/imageButtonSpade"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPictureChoice"
+        app:srcCompat="@drawable/lemon" />
 
 
 
@@ -127,4 +99,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewBottom1"
         app:srcCompat="@drawable/play" />
+
+
 </android.support.constraint.ConstraintLayout>
