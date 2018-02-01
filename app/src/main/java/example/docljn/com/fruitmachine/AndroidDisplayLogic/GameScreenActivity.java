@@ -76,7 +76,7 @@ public class GameScreenActivity extends AppCompatActivity {
         }
     }
 
-    protected void onBuyCreditButtonClick(View button){
+    public void onBuyCreditButtonClick(View button){
         Integer amount = Integer.valueOf(button.getTag().toString());
         game.changePlayerCredits(amount);
         updateCreditText();
@@ -257,7 +257,7 @@ public class GameScreenActivity extends AppCompatActivity {
 
 
 
-    protected void onPlayButtonClick(View view){  // have to pass in a view even if you don't use it!
+    public void onPlayButtonClick(View view){  // have to pass in a view even if you don't use it!
         if (game.sufficientCredits()) {  // hopefully stops a crash when play is clicked with zero credits
 
             //TODO: refactor so that play is void and you get won from showresults?

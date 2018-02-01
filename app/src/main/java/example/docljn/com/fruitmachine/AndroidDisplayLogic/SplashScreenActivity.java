@@ -31,10 +31,10 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
 
-    protected void onSelectImageButtonClick(View button){
+    public void onSelectImageButtonClick(View button){
+        //TODO: error says the signature is wrong?
         String imageSet = button.getTag().toString();
         View playButtonView = findViewById(R.id.imageButtonStartPlay);
-        //TODO: how to set a tag on a button?
         playButtonView.setTag(imageSet);
 
     }

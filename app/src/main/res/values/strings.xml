@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FruitMachine</string>
+    <string name="reel_image_choice">Suits or Fruits</string>
+    <string name="buy_200_credits">200 Credits</string>
+    <string name="buy_1000_credits">1000 Credits</string>
+    <string name="buy_2000_credits">2000 Credits</string>
 </resources>
