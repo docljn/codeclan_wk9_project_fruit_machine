@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     tools:context="example.docljn.com.fruitmachine.AndroidDisplayLogic.SplashScreenActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewFruitMachine"
         android:layout_width="0dp"
         android:layout_height="160dp"
         android:layout_marginEnd="8dp"
@@ -17,34 +18,113 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textViewPictureChoice"
         app:srcCompat="@drawable/sevens" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewPictureChoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="CHOOSE YOUR REEL"
+        android:text="CHOOSE YOUR PICTURES"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewFruitMachine" />
+
+    <!--First Image Set-->
+
+
+    <ImageView
+        android:id="@+id/imageViewTop1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewPictureChoice"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewWinLine1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom1"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTop1"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop1"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewBottom1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine1"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+    <!--Second Image Set-->
+
+
+    <ImageView
+        android:id="@+id/imageViewTop2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTop1"
+        app:layout_constraintTop_toBottomOf="@id/textViewPictureChoice"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewWinLine2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBottom2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewTop2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop2"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageViewBottom2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonPlay"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewWinLine2"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+
+
+
+
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButtonPlay"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="startPlay"
+        android:tag="cardImages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/play"
-        android:tag="cardImages"
-        android:onClick="startPlay"/>
+        app:layout_constraintTop_toBottomOf="@id/imageViewBottom1"
+        app:srcCompat="@drawable/play" />
 </android.support.constraint.ConstraintLayout>
