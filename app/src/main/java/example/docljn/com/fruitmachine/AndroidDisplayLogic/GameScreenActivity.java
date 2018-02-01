@@ -171,8 +171,8 @@ public class GameScreenActivity extends AppCompatActivity {
     }
 
     private void buttonDeactivate(Button button){
-        button.setBackgroundColor(getResources().getColor(R.color.orange));
-        button.setTextColor(getResources().getColor(R.color.black));
+        button.setBackgroundColor(getResources().getColor(R.color.colorInactive));
+        button.setTextColor(getResources().getColor(R.color.textColorInactive));
     }
 
 
