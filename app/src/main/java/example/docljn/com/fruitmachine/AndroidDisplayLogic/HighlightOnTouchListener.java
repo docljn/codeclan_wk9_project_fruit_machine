@@ -20,10 +20,13 @@ public class HighlightOnTouchListener implements View.OnTouchListener {
 
     public boolean onTouch(final View view, final MotionEvent motionEvent) {
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-            //grey color filter, you can change the color as you like
-            imageButton.setColorFilter(Color.argb(155, 185, 185, 185));
+            imageButton.setBackgroundColor(Color.argb(155, 185, 0, 0));
+            imageButton.setColorFilter(Color.argb(255, 185, 0, 0));
+
         } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-            imageButton.setColorFilter(Color.argb(0, 185, 185, 185));
+            imageButton.setBackgroundColor(Color.argb(0, 185, 0, 0));
+            imageButton.setColorFilter(Color.argb(0, 185, 0, 0));
+
         }
         return false;
     }
