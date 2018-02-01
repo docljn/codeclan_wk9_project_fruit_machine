@@ -19,7 +19,7 @@ import example.docljn.com.fruitmachine.R;
 
 public class GameScreenActivity extends AppCompatActivity {
     Game game;
-    HashMap<Integer, Integer> cardImages;
+    HashMap<Integer, Integer> suitImages;
     HashMap<Integer, Integer> fruitImages;
 
 
@@ -27,18 +27,18 @@ public class GameScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
-        // TODO:  make the set image methods configurable
+
         fruitImages = new HashMap<>();
         fruitImages.put(1, R.drawable.cherry);
         fruitImages.put(2, R.drawable.lemon);
         fruitImages.put(3, R.drawable.watermelon);
         fruitImages.put(5, R.drawable.seven);
 
-        cardImages = new HashMap<>();
-        cardImages.put(1, R.drawable.club);
-        cardImages.put(2, R.drawable.diamond);
-        cardImages.put(3, R.drawable.heart);
-        cardImages.put(5, R.drawable.spade);
+        suitImages = new HashMap<>();
+        suitImages.put(1, R.drawable.club);
+        suitImages.put(2, R.drawable.diamond);
+        suitImages.put(3, R.drawable.heart);
+        suitImages.put(5, R.drawable.spade);
 
         // Get tag from parent activity:
         // Create a new Intent which will be the same as the intent that was sent by startActivity on the source activity
@@ -50,8 +50,8 @@ public class GameScreenActivity extends AppCompatActivity {
 
         if (imageSet.equals("fruitImages")){
             game = new Game(3, fruitImages);
-        } else if (imageSet.equals("cardImages")){
-            game = new Game(3, cardImages);
+        } else if (imageSet.equals("suitImages")){
+            game = new Game(3, suitImages);
         } else {
             game = new Game(3, fruitImages);
         }
