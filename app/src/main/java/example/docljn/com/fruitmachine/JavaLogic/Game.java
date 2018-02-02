@@ -59,15 +59,16 @@ public class Game {
 
 
     public Integer getWinnings() {
-        Integer winnings = getWinLine().get(1) * numberOfReels * gameCost;
+
         ArrayList<Integer> reelValues = getWinLine();
         for (int i = 0; i < reelValues.size(); i++) {
             for (int j = i+1; j < reelValues.size(); j++) {
                 if (reelValues.get(i) != reelValues.get(j)){
-                    winnings = 0;
+                    return 0;
                 }
             }
         }
+        Integer winnings = getWinLine().get(1) * numberOfReels * gameCost;
         return winnings;
     }
 
